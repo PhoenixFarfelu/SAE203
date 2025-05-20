@@ -2,7 +2,9 @@
     {
         "nom" : "",
         "prenom" : "",
-        "connexion" : "",
-        "motdepasse" : ""
+        "utilisateur" : "",
+        "motdepasse" : "",
+        "role" : "",
+        "email" : ""
     }
 ]

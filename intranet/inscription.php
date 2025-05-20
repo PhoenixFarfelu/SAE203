@@ -1,0 +1,95 @@
+<?php
+session_start();
+// iclusion des fonctions du fichier fonctions.php
+include 'scripts/fonctions.php';
+
+// Appel de la fonction head
+parametre('CoVoitVoit','images/icon.png','');
+
+if (isset($_POST['submit'])){
+    // ouverture du fichier utilisateurs.json
+    $file = 'data/utilisateurs.json';
+    $data = [];
+    if (file_exists($file)) {
+        $data = json_decode(file_get_contents($file), true);
+    }
+
+    // récupération des données du formulaire
+    $utilisateur = $_POST['utilisateur'];
+    $mdp = password_hash($_POST['mdp'],PASSWORD_DEFAULT);
+    $mail = $_POST['mail'];
+    $vehicule = $_POST['vehicule'];
+    $role = 'user';
+
+    // Vérification si le nom d'utilisateur est déjà utilisé
+    foreach ($data as $key => $value) {
+        if ($value['utilisateur'] === $utilisateur) {
+            $_SESSION['erreur'] = 'Nom d\'utilisateur déjà utilisé';
+            header('Location: inscription.php');
+            exit();
+        }
+    }
+
+    // Ajout de l'utilisateur dans le fichier utiliosateurs.json
+    $liste = array('utilisateur' => $utilisateur, 'motdepasse' => $mdp, 'email' => $mail, 'vehicule' => $vehicule, 'role' => $role);
+    $data[] = $liste;
+    file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT));
+    header('Location: connexion.php');
+    exit();
+
+} else {
+    // Affichage du formulaire
+    echo '
+    <body class="container-fluid row">
+        <div class="col-sm-4 bg-warning" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <a href="index.php"><img src="images/icon.png" alt="Logo" class="img-fluid"></a>
+        </div>
+
+        <div class="container-fluid col-sm-4">
+            <h1 class="text-center" style="margin-top: 10%; ">Inscription</h1>
+            <form action="inscription.php" method="post" class="">
+
+                <!-- Nom d\'utilisateur -->
+                <div class="mb-3">
+                    <label for="utilisateur" class="form-label">Nom d\'utilisateur</label>
+                    <input type="text" class="form-control" id="utilisateur" name="utilisateur" placeholder="Nom d\'utilisateur" required>';
+                
+                if (isset($_SESSION['erreur']) && $_SESSION['erreur'] === 'Nom d\'utilisateur déjà utilisé') {
+                    echo '<div class="alert alert-danger mt-1" role="alert">Nom d\'utilisateur déjà utilisé</div>';
+                    unset($_SESSION['erreur']);
+                }
+                echo '
+                </div>
+
+                <!-- Type de véhicule -->
+                <div class="mb-3">
+                    <label for="vehicule" class="form-label">Type de véhicule</label>
+                    <input type="text" class="form-control" id="vehicule" name="vehicule" placeholder="Type de véhicule" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="mail" class="form-label">Adresse email</label>
+                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse email" required>
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="mb-3">
+                    <label for="mdp" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" required>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn-dark" name="submit" value="submit">S\'inscrire</button>
+            </form> 
+            <div class="row pt-3">
+                <p class="col">Si vous avez déjà un compte : </p>
+                <a href="connexion.php" class="btn btn-dark" class="col">Se connecter</a>
+            </div>       
+        </div>
+    </body>';
+}
+?>
+
+
+
