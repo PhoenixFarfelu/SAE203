@@ -30,3 +30,26 @@ function parametre($title,$icon,$style = 'style.css',$script = '',$author = '',$
         <link href="'.$style.'" rel="stylesheet" type="text/css">
     </head>';
 }
+
+function read($filename,$JSON=false) {
+    $file = fopen($filename,'r');
+    $data = fread($file, filesize($filename));
+    if ($JSON) {
+        $data = json_decode($data, true);
+    }
+    return $data;
+}
+
+function annuaire($filename) {
+    $data = read("data/annuaires"+$filename, $JSON=true);
+    foreach ($data as $element) {
+        echo "
+    nom : ".$element['nom'].",
+    description : ".$element['description'].",
+    adresse: ".$element['adresse'].",
+    telephone: ".$element['telephone']."\n
+    ";
+    }
+    
+}
+?>
