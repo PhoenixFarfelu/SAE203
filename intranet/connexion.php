@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-#include 'scripts/functions.php';
-#parametre('CoVoitVoit','images/icon.png','');
+include 'scripts/fonctions.php';
+parametre('CoVoitVoit','images/icon.png','');
 
 if (isset($_POST['submit'])){
     // ouverture du fichier utilisateurs.json
