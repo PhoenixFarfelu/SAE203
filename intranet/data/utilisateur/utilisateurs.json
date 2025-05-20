@@ -5,6 +5,62 @@
         "utilisateur" : "nlouer",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
         "role" : "",
-        "email" : "neven@n.fr"
+        "email" : "neven@louer.fr"
+    },
+    {
+        "nom" : "Boone",
+        "prenom" : "Meven",
+        "utilisateur" : "mboone",
+        "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
+        "role" : "",
+        "email" : "meven@boone.fr"
+    },
+    {
+        "nom" : "Lucas",
+        "prenom" : "Aussant",
+        "utilisateur" : "laussant",
+        "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
+        "role" : "",
+        "email" : "lucas@aussant.fr"
+    },
+    {
+        "nom" : "Bompas",
+        "prenom" : "Audalys",
+        "utilisateur" : "abompas",
+        "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
+        "role" : "",
+        "email" : "audalys@bompas.fr"
+    },
+    {
+        "nom" : "Roussel",
+        "prenom" : "Télio",
+        "utilisateur" : "troussel",
+        "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
+        "role" : "",
+        "email" : "telio@roussel.fr"
+    },
+    {
+        "nom" : "Baton",
+        "prenom" : "Robin",
+        "utilisateur" : "rbaton",
+        "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
+        "role" : "",
+        "email" : "robin@baton.fr"
+    },
+    {
+        "nom" : "Delaunay",
+        "prenom" : "Kenaï",
+        "utilisateur" : "kdelaunay",
+        "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
+        "role" : "",
+        "email" : "kenai@delaunay.fr"
+    },
+    {
+        "nom" : "Pouteau",
+        "prenom" : "Flavio",
+        "utilisateur" : "fpouteau",
+        "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
+        "role" : "",
+        "email" : "flavio@pouteau.fr"
     }
 ]
