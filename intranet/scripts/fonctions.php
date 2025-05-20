@@ -1,10 +1,10 @@
 <?php
-function parametre($title,$icon,$style = 'style.css',$script = '',$author = '',$description = '' ,$keywords = ''){
+function parametre($icon,$style = 'style.css',$script = '',$author = '',$description = '' ,$keywords = ''){
     echo '
     <!DOCTYPE html>
     <html lang="fr">
     <head>
-        <title>'.$title.'</title>
+        <title>EOSIR</title>
 
         <!-- mette une icon a coté du titre-->
         <link rel="icon" href="'.$icon.'">
