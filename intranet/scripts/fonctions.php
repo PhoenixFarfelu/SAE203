@@ -41,7 +41,8 @@ function read($filename,$JSON=false) {
 }
 
 function annuaire($filename) {
-    $data = read("data/annuaires"+$filename, $JSON=true);
+    if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
+    $data = read("data/annuaires"+$filename+".json", $JSON=true);
     foreach ($data as $element) {
         echo "
     nom : ".$element['nom'].",
