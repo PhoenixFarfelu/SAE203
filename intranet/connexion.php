@@ -35,7 +35,7 @@ if (isset($_POST['submit'])){
 } else {
     echo '
         <body class="container-fluid row">
-            <div class="col-sm-4 bg-warning" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <div class="col-sm-2 bg-warning" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
                 <a href="index.php"><img src="images/icon.png" alt="Logo" class="img-fluid"></a>
             </div>
 

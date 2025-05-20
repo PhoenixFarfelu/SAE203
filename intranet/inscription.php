@@ -49,24 +49,40 @@ if (isset($_POST['submit'])){
             <h1 class="text-center" >Inscription</h1>
             <form action="inscription.php" method="post" class="">
 
-                <div class="row border-bottom mb-3">
-                    <!-- Nom -->
-                    <div class="mb-3 col">
-                        <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                <div class="border-bottom mb-3">
+
+                    <div class="row">
+                        <!-- Nom -->
+                        <div class="mb-3 col">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                        </div>
+
+                        <!-- Prénom -->
+                        <div class="mb-3 col">
+                            <label for="prenom" class="form-label">Prénom</label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
+                        </div>
                     </div>
-                    <!-- Prénom -->
-                    <div class="mb-3 col">
-                        <label for="prenom" class="form-label">Prénom</label>
-                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
-                    </div>
-                    <!-- Fonction -->
-                    <div class="mb-3">
-                        <label for="fonction" class="form-label">Fonction</label>
-                        <input type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction" required>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- Fonction -->
+                            <div class="mb-3">
+                                <label for="fonction" class="form-label">Fonction</label>
+                                <input type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction" required>
+                            </div>
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="mail" class="form-label">Adresse email</label>
+                                <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse email" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 pt-5">
+                            <label for="photo" class="form-label">Photo</label>
+                            <input type="file" accept="image/*" name="photo" id="photo" class="form-control flex-grow-1 me-2" required>
+                        </div>
                     </div>
 
-                    
                     <!-- Bio -->
                     <div class="mb-3">
                         <label for="bio" class="form-label">Bio</label>
@@ -74,11 +90,7 @@ if (isset($_POST['submit'])){
                     </div>
                 </div>
 
-                <!-- Email -->
-                <div class="mb-3">
-                    <label for="mail" class="form-label">Adresse email</label>
-                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse email" required>
-                </div>
+
             
                 <!-- Nom d\'utilisateur -->
                 <div class="mb-3">
