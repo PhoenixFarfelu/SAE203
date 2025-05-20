@@ -40,9 +40,9 @@ function read($filename,$JSON=false) {
     return $data;
 }
 
-function annuaire($filename) {
-    if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
-    $data = read("data/annuaires/".$filename.".json", $JSON=true);
+function annuaire_partenaires() {
+    // if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
+    $data = read("data/annuaires/partenaires.json", $JSON=true);
     foreach ($data as $element) {
         echo "
     nom : ".$element['nom'].",<br>
@@ -53,4 +53,29 @@ function annuaire($filename) {
     }
     
 }
+
+function annuaire_client() {
+    // if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
+    $data = read("data/annuaires/client.json", $JSON=true);
+    foreach ($data as $element) {
+        echo "
+    nom : ".$element['nom']." ".$element['prenom'].",<br>
+    |__Adresse : ".$element['adresse'].",<br>
+    |__Telephone : ".$element['telephone'].",<br>
+    |__Email : ".$element['email'].",<br>
+    |__Fiche client : 
+    <form method='post' action='scripts/telecharger_fiche_client.php' style='display:inline;'>
+        <input type='hidden' name='nom' value='".$element['nom']."'>
+        <input type='hidden' name='prenom' value='".$element['prenom']."'>
+        <input type='hidden' name='adresse' value='".$element['adresse']."'>
+        <input type='hidden' name='telephone' value='".$element['telephone']."'>
+        <input type='hidden' name='email' value='".$element['email']."'>
+        <button type='submit' class='btn btn-primary btn-sm'>Télécharger</button>
+    </form>
+    <br>";
+    }
+    
+}
+
+
 ?>

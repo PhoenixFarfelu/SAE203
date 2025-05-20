@@ -1,4 +1,4 @@
 <?php
 include "scripts/fonctions.php";
-annuaire("partenaires");
+annuaire_client();
 ?>
