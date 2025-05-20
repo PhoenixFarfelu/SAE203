@@ -41,14 +41,45 @@ if (isset($_POST['submit'])){
     // Affichage du formulaire
     echo '
     <body class="container-fluid row">
-        <div class="col-sm-4 bg-warning" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+        <div class="col-sm-2 bg-warning" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
             <a href="index.php"><img src="images/icon.png" alt="Logo" class="img-fluid"></a>
         </div>
 
-        <div class="container-fluid col-sm-4">
-            <h1 class="text-center" style="margin-top: 10%; ">Inscription</h1>
+        <div class="container-fluid col-sm-8">
+            <h1 class="text-center" >Inscription</h1>
             <form action="inscription.php" method="post" class="">
 
+                <div class="row border-bottom mb-3">
+                    <!-- Nom -->
+                    <div class="mb-3 col">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                    </div>
+                    <!-- Prénom -->
+                    <div class="mb-3 col">
+                        <label for="prenom" class="form-label">Prénom</label>
+                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
+                    </div>
+                    <!-- Fonction -->
+                    <div class="mb-3">
+                        <label for="fonction" class="form-label">Fonction</label>
+                        <input type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction" required>
+                    </div>
+
+                    
+                    <!-- Bio -->
+                    <div class="mb-3">
+                        <label for="bio" class="form-label">Bio</label>
+                        <textarea class="form-control" id="bio" name="bio" rows="3" placeholder="Bio"></textarea>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="mail" class="form-label">Adresse email</label>
+                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse email" required>
+                </div>
+            
                 <!-- Nom d\'utilisateur -->
                 <div class="mb-3">
                     <label for="utilisateur" class="form-label">Nom d\'utilisateur</label>
@@ -59,18 +90,6 @@ if (isset($_POST['submit'])){
                     unset($_SESSION['erreur']);
                 }
                 echo '
-                </div>
-
-                <!-- Type de véhicule -->
-                <div class="mb-3">
-                    <label for="vehicule" class="form-label">Type de véhicule</label>
-                    <input type="text" class="form-control" id="vehicule" name="vehicule" placeholder="Type de véhicule" required>
-                </div>
-
-                <!-- Email -->
-                <div class="mb-3">
-                    <label for="mail" class="form-label">Adresse email</label>
-                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse email" required>
                 </div>
 
                 <!-- Mot de passe -->
