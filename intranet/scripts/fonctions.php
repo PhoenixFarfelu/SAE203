@@ -42,14 +42,14 @@ function read($filename,$JSON=false) {
 
 function annuaire($filename) {
     if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
-    $data = read("data/annuaires".$filename.".json", $JSON=true);
+    $data = read("data/annuaires/".$filename.".json", $JSON=true);
     foreach ($data as $element) {
         echo "
-    nom : ".$element['nom'].",
-    description : ".$element['description'].",
-    adresse: ".$element['adresse'].",
-    telephone: ".$element['telephone']."\n
-    ";
+    nom : ".$element['nom'].",<br>
+    |__description : ".$element['description'].",<br>
+    |__adresse: ".$element['adresse'].",<br>
+    |__telephone: ".$element['telephone']."<br>
+    <br>";
     }
     
 }
