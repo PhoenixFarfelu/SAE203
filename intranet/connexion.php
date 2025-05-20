@@ -21,8 +21,9 @@ if (isset($_POST['submit'])){
         if ($value['utilisateur'] == $utilisateur){
             if  (password_verify($_POST['mdp'],$value['motdepasse'])){
                 $_SESSION['nom'] = $value['utilisateur'];
-                $_SESSION['role'] = $value['role'];
                 $_SESSION['mail'] = $value['email'];
+                $_SESSION['role'] = $value['role'];
+                print_r($_SESSION);
                 header('Location: index.php');
                 exit();
             }
