@@ -6,7 +6,7 @@ parametre('CoVoitVoit','images/icon.png','');
 
 if (isset($_POST['submit'])){
     // ouverture du fichier utilisateurs.json
-    $file = 'data/utilisateurs.json';
+    $file = 'data/utilisateur/utilisateurs.json';
     $data = [];
     if (file_exists($file)) {
         $data = json_decode(file_get_contents($file), true);
@@ -14,7 +14,7 @@ if (isset($_POST['submit'])){
 
     // récupération des données du formulaire
     $utilisateur = $_POST['utilisateur'];
-    $mdp = password_hash($_POST['mdp'],PASSWORD_DEFAULT);
+    // $mdp = password_hash($_POST['mdp'],PASSWORD_DEFAULT);
 
     // authentification de l'utilisateur
     foreach ($data as $key => $value){
@@ -22,7 +22,6 @@ if (isset($_POST['submit'])){
             if  (password_verify($_POST['mdp'],$value['motdepasse'])){
                 $_SESSION['nom'] = $value['utilisateur'];
                 $_SESSION['role'] = $value['role'];
-                $_SESSION['vehicule'] = $value['vehicule'];
                 $_SESSION['mail'] = $value['email'];
                 header('Location: index.php');
                 exit();
