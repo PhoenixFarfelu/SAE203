@@ -10,13 +10,16 @@ intranet/
 |       ├── partenairs.json
 |       ├── logo
 |       └── client.json
-├── scripts/
-│   ├── fonctions.php
-|   └── ...
 ├── gestionnaire_fichier
 |   ├── groupe
 |   ├── salaries
 |   ├── ...
+├── img
+|   ├── logo1.png
+|   └── ...
+├── scripts/
+│   ├── fonctions.php
+|   └── ...
 ├── connexion.php
 ├── annuaire_entreprise.php
 ├── annuaire_partenaires.php
