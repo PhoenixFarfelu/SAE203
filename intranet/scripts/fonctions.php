@@ -77,5 +77,14 @@ function annuaire_client() {
     
 }
 
+function gestionnaire_fichier ($utilisateur,$groupe) {
+    scandir('./');
+}
 
+function affiche_dossier ($dossier) {
+    $contenu = scandir($dossier);
+    array_splice($contenu,0,2); // supprime les entré : '.' et '..'
+    print_r($contenu);
+
+}
 ?>

@@ -1,5 +1,6 @@
 # Intranet
-```
+
+`
 intranet/
 ├── data/
 │   ├── utilisateurs
@@ -12,8 +13,12 @@ intranet/
 ├── scripts/
 │   ├── fonctions.php
 |   └── ...
+├── gestionnaire_fichier
+|   ├── groupe
+|   ├── salaries
+|   ├── ...
 ├── connexion.php
 ├── annuaire_entreprise.php
 ├── annuaire_partenaires.php
 ├── annuaire_clients.php
-```
+`
