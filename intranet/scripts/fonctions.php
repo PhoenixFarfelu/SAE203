@@ -82,9 +82,50 @@ function gestionnaire_fichier ($utilisateur,$groupe) {
 }
 
 function affiche_dossier ($dossier) {
+    $chemin = explode('/',$dossier);
+    // print_r($chemin);
+    // echo"$chemin[1]";
+
+    echo '
+    <div class="container-fluid row fs-2 border-bottom">
+        <div class="col-sm-2 text-center">   
+            <form action="test.php" method="get">
+                <button type="submit" class="btn btn-dark" name="submit" value="./gestionnaire_fichier">Home</button>
+            </form>
+        </div>
+    ';
+    $absolu = '.';
+    for ($i = 1; $i < count($chemin); $i ++){
+        $absolu .= "/$chemin[$i]";
+        if (($chemin[$i] != '.')&&($chemin[$i] != 'gestionnaire_fichier')){
+            echo '
+            <div class="col-sm-2 bg-white">
+                <form action="test.php" method="get">
+                    <button type="submit" class="btn btn-dark" name="submit" value="'.$absolu.'">'.$chemin[$i].'</button>
+                </form>
+            </div>';
+        }
+    }
+    echo '</div>';
+    echo '<div class="container-fluid">';
+
     $contenu = scandir($dossier);
     array_splice($contenu,0,2); // supprime les entré : '.' et '..'
-    print_r($contenu);
+
+    foreach ($contenu as $value){
+        if (! is_dir($dossier.'/'.$value)){
+            echo '<div class="border-bottom">'.$value.'</div>';
+        } else {
+            echo '
+            <div class="border-bottom">
+                    <form action="test.php" method="get">
+                        <button type="submit" class="btn btn-dark" name="submit" value="'.$dossier.'/'.$value.'">'.$value.'</button>
+                    </form>
+            </div>
+            ';
+        }
+    }
+    echo '</div>';
 
 }
 ?>
