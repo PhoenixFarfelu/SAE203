@@ -9,3 +9,7 @@
     height: 32px;
     object-fit: cover;
 }
+.cacher {
+    display: none;
+    visibility: hidden;
+}

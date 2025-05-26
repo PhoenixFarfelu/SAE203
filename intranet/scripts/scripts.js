@@ -5,6 +5,8 @@ function souris_sort(x) {
     x.classList.remove('bg-body-secondary');
 }
 function envoie_formulaire(x) {
-    console.log(x);
+    document.getElementById(x).click();
+}
+function telechargement(x) {
     document.getElementById(x).click();
 }

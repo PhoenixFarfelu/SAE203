@@ -81,7 +81,7 @@ function gestionnaire_fichier ($utilisateur,$groupe) {
     scandir('./');
 }
 
-function affiche_dossier ($dossier) {
+function affiche_dossier ($dossier,$racine) {
     $chemin = explode('/',$dossier);
     // print_r($chemin);
     // echo"$chemin[1]";
@@ -89,13 +89,15 @@ function affiche_dossier ($dossier) {
     echo '<div class="container-fluid row fs-2 border-bottom"><div class="col-sm-2 text-center">';
     echo '
     <form action="test.php" method="get">
-        <button type="submit" class="btn btn-warning container-fluid text-start" name="submit" value="./gestionnaire_fichier">Home</button>
+        <button type="submit" class="btn btn-warning container-fluid text-start" name="submit" value="'.$racine.'">Home</button>
     </form>'; 
     echo '</div>';
+    $test = explode('/',$racine);
     $absolu = '.';
-    for ($i = 1; $i < count($chemin); $i ++){
+    for ($i = count($test)-1; $i < count($chemin); $i ++){
         $absolu .= "/$chemin[$i]";
-        if (($chemin[$i] != '.')&&($chemin[$i] != 'gestionnaire_fichier')){
+        
+        if (($chemin[$i] != '.')&&($chemin[$i] != $test[count($test)-1])){
             echo '
             <div class="col-sm-2">
             <form action="test.php" method="get">
@@ -113,7 +115,14 @@ function affiche_dossier ($dossier) {
     foreach ($contenu as $value){
         $i ++;
         if (! is_dir($dossier.'/'.$value)){
-            echo '<div class="border-bottom">'.$value.'</div>';
+            //echo '<div class="border-bottom">'.$value.'</div>';
+            echo '
+                 <div class="container-fluid row no-select" onmouseover="souris_dessus(this)" onmouseout="souris_sort(this)" ondblclick="telechargement(\''.$dossier.'/'.$value.'\')">
+                    <div class="col-sm-1"><img src="" class="icon-dossier" alt="fichier"></div>
+                    <div class="col-sm-10 ">'.$value.'</div>
+                    <div class="col-sm-1 ">3 points</div>
+                    <a href="'.$dossier.'/'.$value.'" id="'.$dossier.'/'.$value.'" class="d-none" download>Télécharger le fichier PDF</a>
+                </div>';
         } else {
             lien_dossier($dossier.'/'.$value,$value,'file'.$i);
         }
