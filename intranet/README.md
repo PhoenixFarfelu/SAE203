@@ -1,6 +1,6 @@
 # Intranet
 
-`
+```
 intranet/
 ├── data/
 │   ├── utilisateurs
@@ -20,10 +20,10 @@ intranet/
 ├── scripts/
 │   ├── fonctions.php
 |   ├── scripts.js
-|   ├── style.css
+|   ├── style.cssq
 |   └── ...
 ├── connexion.php
 ├── annuaire_entreprise.php
 ├── annuaire_partenaires.php
 ├── annuaire_clients.php
-`
+```
