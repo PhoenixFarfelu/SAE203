@@ -2,7 +2,7 @@
 session_start();
 
 include 'scripts/fonctions.php';
-parametre('img/logo1.png','');
+parametre('img/logo1.png');
 
 if (isset($_POST['submit'])){
     // ouverture du fichier utilisateurs.json

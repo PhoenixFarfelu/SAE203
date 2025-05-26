@@ -1,5 +1,5 @@
 <?php
-function parametre($icon,$style = 'style.css',$script = '',$author = '',$description = '' ,$keywords = ''){
+function parametre($icon,$style='./scripts/style.css',$script ='./scripts/scripts.js',$author = '',$description = '' ,$keywords = ''){
     echo '
     <!DOCTYPE html>
     <html lang="fr">
@@ -86,24 +86,22 @@ function affiche_dossier ($dossier) {
     // print_r($chemin);
     // echo"$chemin[1]";
 
+    echo '<div class="container-fluid row fs-2 border-bottom"><div class="col-sm-2 text-center">';
     echo '
-    <div class="container-fluid row fs-2 border-bottom">
-        <div class="col-sm-2 text-center">   
-            <form action="test.php" method="get">
-                <button type="submit" class="btn btn-dark" name="submit" value="./gestionnaire_fichier">Home</button>
-            </form>
-        </div>
-    ';
+    <form action="test.php" method="get">
+        <button type="submit" class="btn btn-warning container-fluid text-start" name="submit" value="./gestionnaire_fichier">Home</button>
+    </form>'; 
+    echo '</div>';
     $absolu = '.';
     for ($i = 1; $i < count($chemin); $i ++){
         $absolu .= "/$chemin[$i]";
         if (($chemin[$i] != '.')&&($chemin[$i] != 'gestionnaire_fichier')){
             echo '
-            <div class="col-sm-2 bg-white">
-                <form action="test.php" method="get">
-                    <button type="submit" class="btn btn-dark" name="submit" value="'.$absolu.'">'.$chemin[$i].'</button>
-                </form>
-            </div>';
+            <div class="col-sm-2">
+            <form action="test.php" method="get">
+                <button type="submit" class="btn btn-warning container-fluid text-start" name="submit" value="'.$absolu.'">'.$chemin[$i].'</button>
+            </form>
+            </div>';  
         }
     }
     echo '</div>';
@@ -111,21 +109,32 @@ function affiche_dossier ($dossier) {
 
     $contenu = scandir($dossier);
     array_splice($contenu,0,2); // supprime les entré : '.' et '..'
-
+    $i = 0;
     foreach ($contenu as $value){
+        $i ++;
         if (! is_dir($dossier.'/'.$value)){
             echo '<div class="border-bottom">'.$value.'</div>';
         } else {
-            echo '
-            <div class="border-bottom">
-                    <form action="test.php" method="get">
-                        <button type="submit" class="btn btn-dark" name="submit" value="'.$dossier.'/'.$value.'">'.$value.'</button>
-                    </form>
-            </div>
-            ';
+            lien_dossier($dossier.'/'.$value,$value,'file'.$i);
         }
     }
     echo '</div>';
+
+}
+
+function lien_dossier ($absolu,$nom,$id="") {
+    echo '
+    <form action="test.php" method="get">
+        <button type="submit" id="'.$id.'"class="container-fluid text-start" name="submit" value="'.$absolu.'" style="display: none">'.$nom.'</button>
+    </form>';
+    echo '
+    <div class="container-fluid row no-select" onmouseover="souris_dessus(this)" onmouseout="souris_sort(this)" ondblclick="envoie_formulaire(\''.$id.'\')">
+        <div class="col-sm-1"><img src="./img/dossier.png" class="icon-dossier" alt="dossier"></div>
+        <div class="col-sm-10 ">'.$nom.'</div>
+        <div class="col-sm-1 ">3 points</div>
+    </div>
+    ';
+
 
 }
 ?>

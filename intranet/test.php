@@ -1,6 +1,6 @@
 <?php
 include "scripts/fonctions.php";
-parametre('img/logo1.png','');
+parametre('img/logo1.png');
 // annuaire_client();
 echo '<body>';
 if (isset($_GET['submit'])){
