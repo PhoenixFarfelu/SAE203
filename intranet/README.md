@@ -19,6 +19,8 @@ intranet/
 |   └── ...
 ├── scripts/
 │   ├── fonctions.php
+|   ├── scripts.js
+|   ├── style.css
 |   └── ...
 ├── connexion.php
 ├── annuaire_entreprise.php
