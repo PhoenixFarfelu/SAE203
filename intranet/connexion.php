@@ -35,45 +35,40 @@ if (isset($_POST['submit'])){
 
 } else {
     echo '
-        <body class="container-fluid row">
-            <div class="col-sm-2 bg-warning" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
-                <a href="index.php"><img src="images/icon.png" alt="Logo" class="img-fluid"></a>
-            </div>
-
-            <div class="container-fluid col-sm-4">
-                <h1 class="text-center" style="margin-top: 40%;">Connexion</h1>
-                <form action="connexion.php" method="post" class="">
-
-                    <!-- Nom d\'utilisateur -->
-                    <div class="mb-3">
-                        <label for="utilisateur" class="form-label">Nom d\'utilisateur</label>
-                        <input type="text" class="form-control" id="utilisateur" name="utilisateur" placeholder="Nom d\'utilisateur" required>
-                    </div>
-
-                    <!-- Mot de passe -->
-                    <div class="mb-3">
-                        <label for="mdp" class="form-label">Mot de passe</label>
-                        <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" required>
-                    </div>';
-                    if (isset($_SESSION['erreur']) && $_SESSION['erreur'] === 'Nom d\'utilisateur ou mot de passe incorrect') {
-                        echo '<div class="alert alert-danger mt-1" role="alert">Nom d\'utilisateur ou mot de passe incorrect</div>';
-                        unset($_SESSION['erreur']);
-                    }
-    echo '
-
-
-                    <!-- Submit -->
-                    <button type="submit" class="btn btn-dark" name="submit" value="submit">Se connecter</button>
-                </form>
-
-                <!-- Boutton de redirection vers la page d\'inscription -->
-                <div class="row pt-3">
-                    <p class="col">Si vous n\'avez pas de compte : </p>
-                    <a href="inscription.php" class="btn btn-dark" class="col">S\'inscrire</a>
+    <body class="bg-light">
+        <div class="container vh-100 d-flex justify-content-center align-items-center">
+            <div class="row w-100">
+                <div class="col-md-4 d-none d-md-flex flex-column align-items-center justify-content-center bg-warning rounded-start" style="height: 400px;">
+                    <a href="index.php"><img src="img/logo1.png" alt="Logo" class="img-fluid mb-3" style="max-width: 120px;"></a>
+                    <h2 class="fw-bold text-dark">EOSIR</h2>
                 </div>
-                
+                <div class="col-md-6 bg-white shadow rounded-end p-5 mx-auto">
+                    <h1 class="text-center mb-4">Connexion</h1>
+                    <form action="connexion.php" method="post">
+                        <div class="mb-3">
+                            <label for="utilisateur" class="form-label">Nom d\'utilisateur</label>
+                            <input type="text" class="form-control" id="utilisateur" name="utilisateur" placeholder="Nom d\'utilisateur" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mdp" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" required>
+                        </div>';
+                        if (isset($_SESSION['erreur']) && $_SESSION['erreur'] === 'Nom d\'utilisateur ou mot de passe incorrect') {
+                            echo '<div class="alert alert-danger mt-1" role="alert">Nom d\'utilisateur ou mot de passe incorrect</div>';
+                            unset($_SESSION['erreur']);
+                        }
+    echo '<div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-dark" name="submit" value="submit">Se connecter</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-4">
+                        <span>Si vous n\'avez pas de compte :</span>
+                        <a href="inscription.php" class="btn btn-outline-dark ms-2">S\'inscrire</a>
+                    </div>
+                </div>
             </div>
-        </body>';
+        </div>
+    </body>';
 }
 
 ?>
