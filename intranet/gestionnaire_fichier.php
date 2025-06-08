@@ -10,13 +10,12 @@
 <?php
 session_start();
 include 'scripts/fonctions.php';
-parametre('img/icon1.png');
+parametre('img/logo1.png');
 
 if (!isset($_SESSION['nom'])) {
     header('Location: connexion.php');
     exit();
 }
-entete();
 navigation();
 ?>
 <style>
@@ -129,17 +128,14 @@ navigation();
     }
 
     function user_can($action, $filepath) {
-        $user = $_SESSION['nom'] ?? '';
-        $role = $_SESSION['role'] ?? 'guest';
-
-        // interdire l'acces aux fichiers de metadonnées (.meta.json)
-        if (strpos($filepath, ".meta.json")) return false;
-
-        // l'admin a tous les droits
-        if ($role=="admin") return true;
+        $user = $_SESSION["nom"] ?? "";
+        $role = $_SESSION["role"] ?? "guest";
 
         $permissions = get_file_permissions($filepath);
         if (!$permissions) return false;
+
+        // l'admin a tous les droits
+        if ($role=="admin") return true;        
 
         $droit = "can_".$action;
         if (isset($permissions[$droit])) {
