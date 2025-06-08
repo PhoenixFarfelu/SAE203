@@ -30,16 +30,12 @@ $nb_partenaire = count($partenaire);
                         <th scope="col">Nombre de fournisseurs partenaires</th>
                     </tr>
                 </thead>
-
                 <tbody>
-    
-                        <tr>
-                            <td> <?php echo $nb_users; ?></td>
-                            <td><?php echo $nb_clients; ?></td>
-                            <td><?php echo $nb_partenaire; ?></td>
-                            
-                        </tr>
-
+                    <tr>
+                        <td> <?php echo $nb_users; ?></td>
+                        <td><?php echo $nb_clients; ?></td>
+                        <td><?php echo $nb_partenaire; ?></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
