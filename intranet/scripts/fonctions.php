@@ -54,29 +54,53 @@ function annuaire_partenaires() {
     
 }
 
-function annuaire_client() {
-    // if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
-    $data = read("data/annuaires/client.json", $JSON=true);
-    foreach ($data as $element) {
-        echo "
-    nom : ".$element['nom']." ".$element['prenom'].",<br>
-    |__Adresse : ".$element['adresse'].",<br>
-    |__Telephone : ".$element['telephone'].",<br>
-    |__Email : ".$element['email'].",<br>
-    |__Fiche client : 
-    <form method='post' action='scripts/telecharger_fiche_client.php' style='display:inline;'>
-        <input type='hidden' name='nom' value='".$element['nom']."'>
-        <input type='hidden' name='prenom' value='".$element['prenom']."'>
-        <input type='hidden' name='adresse' value='".$element['adresse']."'>
-        <input type='hidden' name='telephone' value='".$element['telephone']."'>
-        <input type='hidden' name='email' value='".$element['email']."'>
-        <button type='submit' class='btn btn-primary btn-sm'>Télécharger</button>
-    </form>
-    <br>";
-    }
-    
-}
 
+function annuaire_client_ameliore() {
+    echo '
+    <h1 class="my-4 text-center">Liste des clients</h1>
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Email</th>
+                        <th>Fiche client</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
+    $clients = json_decode(file_get_contents("data/annuaires/client.json"), true);
+    foreach ($clients as $client) {
+        echo '
+        <tr>
+            <td>' . htmlspecialchars($client['nom']) . '</td>
+            <td>' . htmlspecialchars($client['prenom']) . '</td>
+            <td>' . htmlspecialchars($client['adresse']) . '</td>
+            <td>' . htmlspecialchars($client['telephone']) . '</td>
+            <td>' . htmlspecialchars($client['email']) . '</td>
+            <td>
+                <form method="post" action="scripts/telecharger_fiche_client.php" style="display:inline;">
+                    <input type="hidden" name="nom" value="' . htmlspecialchars($client['nom']) . '">
+                    <input type="hidden" name="prenom" value="' . htmlspecialchars($client['prenom']) . '">
+                    <input type="hidden" name="adresse" value="' . htmlspecialchars($client['adresse']) . '">
+                    <input type="hidden" name="telephone" value="' . htmlspecialchars($client['telephone']) . '">
+                    <input type="hidden" name="email" value="' . htmlspecialchars($client['email']) . '">
+                    <button type="submit" class="btn btn-primary btn-sm">Télécharger</button>
+                </form>
+            </td>
+        </tr>';
+    }
+
+    echo '
+                </tbody>
+            </table>
+        </div>
+    </div>';
+}
 function gestionnaire_fichier ($utilisateur,$groupe) {
     scandir('./');
 }

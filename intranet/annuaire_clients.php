@@ -8,9 +8,8 @@ if (!isset($_SESSION['nom'])) {
     exit();
 }
 parametre("", "", "" );
-entete();
 navigation();
-
+annuaire_client_ameliore();
 ?>
 
 
