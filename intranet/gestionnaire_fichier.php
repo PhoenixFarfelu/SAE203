@@ -4,6 +4,7 @@
     - sanitariser les inputs utilisateurs
     - autoriser l'overwrite (si droits accordés)
     - sécuriser les fichiers de conf (empecher l'accès aux fichiers .json)
+    - Js pour reduire les dossiers
     - couper l'accès au gestionnaire de fichier (le dossier, pas la page) pou n'y acceder que par php -->
 
 <?php
