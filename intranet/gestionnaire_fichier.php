@@ -135,11 +135,15 @@ navigation();
         if (!$permissions) return false;
 
         // l'admin a tous les droits
-        if ($role=="admin") return true;        
+        if (in_array("admin",$role)) return true;        
 
         $droit = "can_".$action;
         if (isset($permissions[$droit])) {
-            return (in_array($user, $permissions[$droit]) || in_array("all", $permissions[$droit]));
+            foreach($role as $rolei) {
+                if (in_array($rolei, $permissions[$droit])) return true;
+            }
+            if (in_array($user, $permissions[$droit])) return true;
+            return (in_array("all", $permissions[$droit]));
         }
         // en cas de probleme, seul l'owner peut tout faire
         return $permissions["owner"]==$user;
