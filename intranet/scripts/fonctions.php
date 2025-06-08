@@ -175,7 +175,7 @@ function navigation()
     echo('
 <nav class="navbar navbar-expand-lg" style="background-color: #f8f9fa;">
     <div class="container-fluid">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="/SAE203/intranet/index.php">
             <img src="img/logo1.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
         </a>
         <div class="collapse navbar-collapse">
@@ -191,6 +191,9 @@ function navigation()
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link active" href="/SAE203/intranet/annuaire_clients.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire des clients</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/SAE203/intranet/wiki.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Wiki</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
