@@ -150,8 +150,11 @@ if (!isset($_SESSION['nom'])) {
         // les admins peuvent tout voir
         if ($role=="admin") return true;
 
+        // mise en place de dossiers partagés
+        if ((strpos($chemin, "/general")!=false) || (strpos($chemin, '/resources')!=false)) return true;
+
         // vérifie si le chemin contient le nom de l'utilisateur
-        return strpos($chemin, '/'.$nom.'/')!=false;
+        return strpos($chemin, '/'.$nom)!=false;
     }
 
     // Appel
