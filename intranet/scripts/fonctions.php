@@ -146,4 +146,71 @@ function lien_dossier ($absolu,$nom,$id="") {
 
 
 }
+function navigation() 
+{
+    echo('
+
+
+    <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/SAE203/intranet/gestionnaire_fichier.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Gestionnaire de fichier</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link active" href="/SAE203/intranet/annuaire_entreprise.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire de l\'entreprise</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/SAE203/intranet/annuaire_fournisseur_partenaire.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaires des fournisseurs partenaires</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/SAE203/intranet/annuaire_clients.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire des clients</a>
+        </li>
+        </ul>
+        <form class="d-flex ">
+            <input class="form-control me-2" type="text" placeholder="Search">
+            <button class="btn btn-primary" type="button">Search</button>
+        </form>
+        </nav>
+    </div>
+
+    <script>
+        // Sélectionner tous les liens de la navbar
+    
+
+        // Parcourir chaque lien et ajouter des gestionnaires d\'événements
+        function agrandir(link){
+        link.style.fontSize = \'1.5rem\'; // Agrandir la taille de la police
+        link.style.transition = \'font-size 0.3s ease-in-out, color 0.3s ease-in-out\'; // Transition fluide
+    
+        }
+        function revenir(link){
+        link.style.fontSize = \'1rem\'; // Revenir à la taille normale
+        link.style.color = \'\'; // Réinitialiser la couleur
+
+        }
+    
+    </script>
+  ');
+        
+    
+}
+
+function entete()
+{
+    echo('
+    <header class="p-1">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+  
+
+                <div class="d-flex align-items-center ms-auto">
+
+                    <span class="text-dark me-3">Bonjour, '.$_SESSION["nom"].'</span>
+                          <a href="../html/deconnexion.php" class="btn btn-outline-dark btn-sm">Se déconnecter</a>
+
+            </div>
+            </div>
+
+    </header>
+    ');
+}
 ?>

@@ -7,7 +7,10 @@ if (!isset($_SESSION['nom'])) {
     header('Location: connexion.php');
     exit();
 }
+parametre("Audalys", "PageAccueil", "accueil" );
+entete();
+navigation();
+
 ?>
 
 
-<a href="deconnexion.php" class="btn btn-outline-dark btn-sm mt-2 mt-sm-0">Se déconnecter</a>
