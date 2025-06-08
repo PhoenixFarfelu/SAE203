@@ -121,21 +121,21 @@ navigation();
     }
 
     function get_file_permissions($filepath) {
-        $metaFile = $filepath.".json";
+        $metaFile = $filepath.".meta.json";
         if (!file_exists($metaFile)) return null;
         $json = file_get_contents($metaFile);
         return json_decode($json, true);
     }
 
     function user_can($action, $filepath) {
-        $user = $_SESSION['nom'] ?? '';
-        $role = $_SESSION['role'] ?? 'guest';
-
-        // l'admin a tous les droits
-        if ($role === 'admin') return true;
+        $user = $_SESSION["nom"] ?? "";
+        $role = $_SESSION["role"] ?? "guest";
 
         $permissions = get_file_permissions($filepath);
         if (!$permissions) return false;
+
+        // l'admin a tous les droits
+        if ($role=="admin") return true;        
 
         $droit = "can_".$action;
         if (isset($permissions[$droit])) {
