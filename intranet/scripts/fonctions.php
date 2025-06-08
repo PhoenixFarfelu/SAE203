@@ -192,6 +192,9 @@ function navigation()
                 <li class="nav-item mx-2">
                     <a class="nav-link active" href="/SAE203/intranet/annuaire_clients.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire des clients</a>
                 </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/SAE203/intranet/wiki.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Wiki</a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
                 <span class="text-dark me-3">Bonjour, '.$_SESSION["nom"].'</span>
