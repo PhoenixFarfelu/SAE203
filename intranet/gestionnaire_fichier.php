@@ -112,22 +112,25 @@ if (!isset($_SESSION['nom'])) {
         $contenu = array_diff($contenu, ['.', '..']);
 
         foreach ($contenu as $index => $element) {
-            $cheminComplet = rtrim($dossier, '/') . '/' . $element; // ligne a simplifier
-            $isLast = $index===array_key_last($contenu); // == ou === ?
+            $cheminComplet = $dossier . '/' . $element;
+            $isLast = $index==array_key_last($contenu);
             $branche = "|__&nbsp";
 
-            echo $prefix . $branche . $element . "<br>";
-
             if (is_dir($cheminComplet)) {
-                $nouveauPrefix = $prefix . ($isLast ? '&nbsp&nbsp&nbsp&nbsp&nbsp' : '|&nbsp&nbsp&nbsp&nbsp');
+                $nouveauPrefix = $prefix.($isLast ? '&nbsp&nbsp&nbsp&nbsp&nbsp' : '|&nbsp&nbsp&nbsp&nbsp');
+                echo $prefix.$branche."<strong>$element</strong><br>";
                 afficherArborescence($cheminComplet, $nouveauPrefix);
+            } else {
+                $relativePath = htmlspecialchars($cheminComplet); // a securiser
+                $filename = htmlspecialchars($element);
+                echo $prefix.$branche."<a href=\"$relativePath\" download>$element</a><br>";
             }
         }
     }
 
     // Appel
     echo "<br>-------------------<br>";
-    echo "gestionnaire_fichier/";
+    echo "gestionnaire_fichier/<br>";
     afficherArborescence('gestionnaire_fichier/');
     echo "<br>-------------------<br>";
 ?>
