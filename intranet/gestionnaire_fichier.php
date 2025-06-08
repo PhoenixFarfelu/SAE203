@@ -116,16 +116,42 @@ if (!isset($_SESSION['nom'])) {
             $isLast = $index==array_key_last($contenu);
             $branche = "|__&nbsp";
 
-            if (is_dir($cheminComplet)) {
+            if (is_dir($cheminComplet) && peut_voir($cheminComplet)) {
                 $nouveauPrefix = $prefix.($isLast ? '&nbsp&nbsp&nbsp&nbsp&nbsp' : '|&nbsp&nbsp&nbsp&nbsp');
                 echo $prefix.$branche."<strong>$element</strong><br>";
                 afficherArborescence($cheminComplet, $nouveauPrefix);
-            } else {
+            }
+            if (is_file($cheminComplet) && peut_voir($cheminComplet)) {
                 $relativePath = htmlspecialchars($cheminComplet); // a securiser
                 $filename = htmlspecialchars($element);
                 echo $prefix.$branche."<a href=\"$relativePath\" download>$element</a><br>";
             }
         }
+    }
+
+    // gestion des permissions
+    $permissions = [
+        'admin' => ['view' => true, 'upload' => true, 'delete' => true],
+        'user'  => ['view' => true, 'upload' => true, 'delete' => true], //suppression autorisée car un `user` ne verra que ses propres fichiers. Peut poser problème niveau sécurité
+        'guest' => ['view' => true, 'upload' => false, 'delete' => false],
+    ];
+
+    // verifier les droits
+    function a_le_droit($action) {
+        global $permissions;
+        $role = $_SESSION["role"] ?? "guest";
+        return $permissions[$role][$action] ?? false;
+    }
+
+    function peut_voir($chemin) {
+        $nom = $_SESSION["nom"] ?? "";
+        $role = $_SESSION["role"] ?? "guest";
+
+        // les admins peuvent tout voir
+        if ($role=="admin") return true;
+
+        // vérifie si le chemin contient le nom de l'utilisateur
+        return strpos($chemin, '/'.$nom.'/')!=false;
     }
 
     // Appel

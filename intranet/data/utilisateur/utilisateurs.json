@@ -1,10 +1,18 @@
 [
     {
+        "nom" : "Admin",
+        "prenom" : "Admin",
+        "utilisateur" : "admin",
+        "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
+        "role" : "admin",
+        "email" : "admin@admin.fr"
+    },
+    {
         "nom" : "Louër",
         "prenom" : "Neven",
         "utilisateur" : "nlouer",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-        "role" : "",
+        "role" : "user",
         "email" : "neven@louer.fr"
     },
     {
@@ -12,7 +20,7 @@
         "prenom" : "Meven",
         "utilisateur" : "mboone",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-        "role" : "",
+        "role" : "user",
         "email" : "meven@boone.fr"
     },
     {
@@ -20,7 +28,7 @@
         "prenom" : "Aussant",
         "utilisateur" : "laussant",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-        "role" : "",
+        "role" : "user",
         "email" : "lucas@aussant.fr"
     },
     {
@@ -28,7 +36,7 @@
         "prenom" : "Audalys",
         "utilisateur" : "abompas",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-        "role" : "",
+        "role" : "user",
         "email" : "audalys@bompas.fr"
     },
     {
@@ -36,7 +44,7 @@
         "prenom" : "Télio",
         "utilisateur" : "troussel",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-        "role" : "",
+        "role" : "user",
         "email" : "telio@roussel.fr"
     },
     {
@@ -44,7 +52,7 @@
         "prenom" : "Robin",
         "utilisateur" : "rbaton",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-        "role" : "",
+        "role" : "user",
         "email" : "robin@baton.fr"
     },
     {
@@ -52,7 +60,7 @@
         "prenom" : "Kenaï",
         "utilisateur" : "kdelaunay",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-        "role" : "",
+        "role" : "user",
         "email" : "kenai@delaunay.fr"
     },
     {
@@ -60,7 +68,7 @@
         "prenom" : "Flavio",
         "utilisateur" : "fpouteau",
         "motdepasse" : "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-        "role" : "",
+        "role" : "user",
         "email" : "flavio@pouteau.fr"
     }
 ]
