@@ -94,7 +94,7 @@ if (!isset($_SESSION['nom'])) {
     if (isset($_POST['add_file'])) {
         echo "is working";
         $filetype = strtolower(pathinfo('gestionnaire_fichier'.$_POST['path'].basename($_FILES["file-input"]["name"]),PATHINFO_EXTENSION));
-        $filename = $_POST['name']=="" ? $_FILES['file-input']['name'] : $_POST['name'].$filetype;
+        $filename = $_POST['name']=="" ? $_FILES['file-input']['name'] : $_POST['name'].".".$filetype;
         echo "is working with name : $filename";
         if (isset($_SESSION['nom']) && isset($_FILES['file-input']['name'])) {
             move_uploaded_file($_FILES['file-input']['tmp_name'], 'gestionnaire_fichier'.$_POST['path'].$filename);
@@ -105,4 +105,29 @@ if (!isset($_SESSION['nom'])) {
             // echo '<meta http-equiv="refresh" content="0;url=profil.php">';
         }
     }
+
+    function afficherArborescence($dossier, $prefix = '') {
+        $contenu = scandir($dossier);
+        // c'est comme un `ls -l`, scandir retourne `.` et `..`, il faut les retirer
+        $contenu = array_diff($contenu, ['.', '..']);
+
+        foreach ($contenu as $index => $element) {
+            $cheminComplet = rtrim($dossier, '/') . '/' . $element; // ligne a simplifier
+            $isLast = $index===array_key_last($contenu); // == ou === ?
+            $branche = "|__&nbsp";
+
+            echo $prefix . $branche . $element . "<br>";
+
+            if (is_dir($cheminComplet)) {
+                $nouveauPrefix = $prefix . ($isLast ? '&nbsp&nbsp&nbsp&nbsp&nbsp' : '|&nbsp&nbsp&nbsp&nbsp');
+                afficherArborescence($cheminComplet, $nouveauPrefix);
+            }
+        }
+    }
+
+    // Appel
+    echo "<br>-------------------<br>";
+    echo "gestionnaire_fichier/";
+    afficherArborescence('gestionnaire_fichier/');
+    echo "<br>-------------------<br>";
 ?>
