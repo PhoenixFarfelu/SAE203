@@ -197,23 +197,4 @@ function navigation()
         
     
 }
-
-function entete()
-{
-    echo('
-    <header class="p-1">
-            <div class="container-fluid d-flex justify-content-between align-items-center">
-  
-
-                <div class="d-flex align-items-center ms-auto">
-
-                    <span class="text-dark me-3">Bonjour, '.$_SESSION["nom"].'</span>
-                          <a href="/SAE203/intranet/deconnexion.php" class="btn btn-outline-dark btn-sm">Se déconnecter</a>
-
-            </div>
-            </div>
-
-    </header>
-    ');
-}
 ?>

@@ -8,7 +8,6 @@ if (!isset($_SESSION['nom'])) {
     exit();
 }
 parametre("Audalys", "PageAccueil", "accueil" );
-entete();
 navigation();
 
 ?>
