@@ -1,3 +1,11 @@
+<!-- to do list :
+    - autoriser la suppression
+    - creer le dossier d'enregistrement si il n'existe pas
+    - sanitariser les inputs utilisateurs
+    - autoriser l'overwrite (si droits accordés)
+    - sécuriser les fichiers de conf (empecher l'accès aux fichiers .json)
+    - couper l'accès au gestionnaire de fichier (le dossier, pas la page) pou n'y acceder que par php -->
+
 <?php
 session_start();
 include 'scripts/fonctions.php';
@@ -61,34 +69,6 @@ if (!isset($_SESSION['nom'])) {
         handleFile(file);
     }
 </script>
-<?php
-    // echo "php working";
-    // if (isset($_POST["add_file"])) {
-    //     $target_dir = "/intranet/gestionnaire_fichier/";
-    //     $target_file = $target_dir . basename($_FILES["file-input"]["name"]);
-    //     $uploadOk = 1;
-    //     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    //     // Check if image file is a actual image or fake image
-    //     if(isset($_POST["submit"])) {
-    //         echo "<script>alert('debut de l'enregistrement');</script>";
-    //         if (file_exists($target_file)) {
-    //             echo "Sorry, file already exists.";
-    //             $uploadOk = 0;
-    //         }
-    //         if ($uploadOk == 0) {
-    //             echo "Sorry, your file was not uploaded.";
-    //         // if everything is ok, try to upload file
-    //         } else {
-    //             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    //                 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-    //             } else {
-    //                 echo "Sorry, there was an error uploading your file.";
-    //             }
-    //         }
-    //     }
-    // }
-?>
-
 <?php
     echo $_SESSION['nom'];
     if (isset($_POST['add_file'])) {
@@ -162,7 +142,6 @@ if (!isset($_SESSION['nom'])) {
         // en cas de probleme, seul l'owner peut tout faire
         return $permissions["owner"]==$user;
     }
-
 
     // Appel
     echo "<br>-------------------<br>";
