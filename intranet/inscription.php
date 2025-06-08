@@ -41,15 +41,12 @@ if (isset($_POST['submit'])){
     // Affichage du formulaire
     echo '
     <body class="container-fluid row">
-        <div class="col-sm-3" style="height: 50vh; display: flex; align-items: center; justify-content: center;">
-            <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid" style="max-width: 600px;"></a>
-        </div>
 
-        <div class="container-fluid col-sm-5 bg-white shadow rounded-end p-5 mx-auto" style="height: 70vh; display: flex; align-items: center; justify-content: center;">
+        <div class="container-fluid col-sm-5 bg-white shadow rounded-end p-5" align-items: left; justify-content: center;">
         <div class="w-100">
         <div class="container-fluid">
-        <div class="row">
-            <h1 class="text-center" >Inscription</h1>
+        <a><img src="img/logo2.png" alt="Logo" class="img-fluid" style="max-width: 150px;"></a>
+            <h1 class="text-center" >Inscription</h1>                                   
             <form action="inscription.php" method="post" class="">
 
                 <div class="border-bottom mb-3">

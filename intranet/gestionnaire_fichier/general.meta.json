@@ -1,0 +1,7 @@
+{
+  "owner": "admin",
+  "can_view": ["all"],
+  "can_edit": ["all"],
+  "can_delete": ["all"],
+  "shared_with": []
+}

@@ -54,29 +54,53 @@ function annuaire_partenaires() {
     
 }
 
-function annuaire_client() {
-    // if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
-    $data = read("data/annuaires/client.json", $JSON=true);
-    foreach ($data as $element) {
-        echo "
-    nom : ".$element['nom']." ".$element['prenom'].",<br>
-    |__Adresse : ".$element['adresse'].",<br>
-    |__Telephone : ".$element['telephone'].",<br>
-    |__Email : ".$element['email'].",<br>
-    |__Fiche client : 
-    <form method='post' action='scripts/telecharger_fiche_client.php' style='display:inline;'>
-        <input type='hidden' name='nom' value='".$element['nom']."'>
-        <input type='hidden' name='prenom' value='".$element['prenom']."'>
-        <input type='hidden' name='adresse' value='".$element['adresse']."'>
-        <input type='hidden' name='telephone' value='".$element['telephone']."'>
-        <input type='hidden' name='email' value='".$element['email']."'>
-        <button type='submit' class='btn btn-primary btn-sm'>Télécharger</button>
-    </form>
-    <br>";
-    }
-    
-}
 
+function annuaire_client_ameliore() {
+    echo '
+    <h1 class="my-4 text-center">Liste des clients</h1>
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Email</th>
+                        <th>Fiche client</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
+    $clients = json_decode(file_get_contents("data/annuaires/client.json"), true);
+    foreach ($clients as $client) {
+        echo '
+        <tr>
+            <td>' . htmlspecialchars($client['nom']) . '</td>
+            <td>' . htmlspecialchars($client['prenom']) . '</td>
+            <td>' . htmlspecialchars($client['adresse']) . '</td>
+            <td>' . htmlspecialchars($client['telephone']) . '</td>
+            <td>' . htmlspecialchars($client['email']) . '</td>
+            <td>
+                <form method="post" action="scripts/telecharger_fiche_client.php" style="display:inline;">
+                    <input type="hidden" name="nom" value="' . htmlspecialchars($client['nom']) . '">
+                    <input type="hidden" name="prenom" value="' . htmlspecialchars($client['prenom']) . '">
+                    <input type="hidden" name="adresse" value="' . htmlspecialchars($client['adresse']) . '">
+                    <input type="hidden" name="telephone" value="' . htmlspecialchars($client['telephone']) . '">
+                    <input type="hidden" name="email" value="' . htmlspecialchars($client['email']) . '">
+                    <button type="submit" class="btn btn-primary btn-sm">Télécharger</button>
+                </form>
+            </td>
+        </tr>';
+    }
+
+    echo '
+                </tbody>
+            </table>
+        </div>
+    </div>';
+}
 function gestionnaire_fichier ($utilisateur,$groupe) {
     scandir('./');
 }
@@ -145,6 +169,57 @@ function lien_dossier ($absolu,$nom,$id="") {
     ';
 
 
+}
+function navigation() 
+{
+    echo('
+<nav class="navbar navbar-expand-lg" style="background-color: #f8f9fa;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/SAE203/intranet/index.php">
+            <img src="img/logo1.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/SAE203/intranet/gestionnaire_fichier.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Gestionnaire de fichier</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/SAE203/intranet/annuaire_entreprise.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire de l\'entreprise</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/SAE203/intranet/annuaire_fournisseur_partenaire.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaires des fournisseurs partenaires</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="/SAE203/intranet/annuaire_clients.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire des clients</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                <span class="text-dark me-3">Bonjour, '.$_SESSION["nom"].'</span>
+                <a href="/SAE203/intranet/deconnexion.php" class="btn btn-outline-dark btn-sm">Se déconnecter</a>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <script>
+        // Sélectionner tous les liens de la navbar
+    
+
+        // Parcourir chaque lien et ajouter des gestionnaires d\'événements
+        function agrandir(link){
+        link.style.fontSize = \'1.5rem\'; // Agrandir la taille de la police
+        link.style.transition = \'font-size 0.3s ease-in-out, color 0.3s ease-in-out\'; // Transition fluide
+    
+        }
+        function revenir(link){
+        link.style.fontSize = \'1rem\'; // Revenir à la taille normale
+        link.style.color = \'\'; // Réinitialiser la couleur
+
+        }
+    
+    </script>
+  ');
+        
+    
 }
 function navbar (){
     echo'
