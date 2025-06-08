@@ -39,7 +39,7 @@ if (isset($_POST['submit'])){
         <div class="container vh-100 d-flex justify-content-center align-items-center">
             <div class="row w-100">
                 <div class="col-md-1 d-md-flex flex-column align-items-center justify-content-center rounded-start" style="height: 800px;">
-                    <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid mb-2" style="max-width: 600px;"></a>
+                    <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid mb-2" style="max-width: 400%;"></a>
                 </div>
                 <div class="col-md-6 bg-white shadow rounded-end p-5 mx-auto">
                     <h1 class="text-center mb-4">Connexion</h1>
