@@ -122,7 +122,7 @@ navigation();
     }
 
     function get_file_permissions($filepath) {
-        $metaFile = $filepath.".json";
+        $metaFile = $filepath.".meta.json";
         if (!file_exists($metaFile)) return null;
         $json = file_get_contents($metaFile);
         return json_decode($json, true);
@@ -132,8 +132,11 @@ navigation();
         $user = $_SESSION['nom'] ?? '';
         $role = $_SESSION['role'] ?? 'guest';
 
+        // interdire l'acces aux fichiers de metadonnées (.meta.json)
+        if (strpos($filepath, ".meta.json")) return false;
+
         // l'admin a tous les droits
-        if ($role === 'admin') return true;
+        if ($role=="admin") return true;
 
         $permissions = get_file_permissions($filepath);
         if (!$permissions) return false;
