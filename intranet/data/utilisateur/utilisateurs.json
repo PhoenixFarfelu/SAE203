@@ -4,7 +4,7 @@
     "prenom": "Neven",
     "utilisateur": "nlouer",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "admin",
+    "role": ["salarié"],
     "email": "neven@louer.fr"
   },
   {
@@ -12,7 +12,7 @@
     "prenom": "Meven",
     "utilisateur": "mboone",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "manager",
+    "role": ["salarié"],
     "email": "meven@boone.fr"
   },
   {
@@ -20,7 +20,7 @@
     "prenom": "Aussant",
     "utilisateur": "laussant",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "salarié",
+    "role": ["salarié"],
     "email": "lucas@aussant.fr"
   },
   {
@@ -28,7 +28,7 @@
     "prenom": "Audalys",
     "utilisateur": "abompas",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "salarié",
+    "role": ["salarié"],
     "email": "audalys@bompas.fr"
   },
   {
@@ -36,7 +36,7 @@
     "prenom": "Télio",
     "utilisateur": "troussel",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "salarié",
+    "role": ["salarié"],
     "email": "telio@roussel.fr"
   },
   {
@@ -44,7 +44,7 @@
     "prenom": "Robin",
     "utilisateur": "rbaton",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "direction",
+    "role": ["salarié"],
     "email": "robin@baton.fr"
   },
   {
@@ -52,7 +52,7 @@
     "prenom": "Kenaï",
     "utilisateur": "kdelaunay",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "manager",
+    "role": ["salarié"],
     "email": "kenai@delaunay.fr"
   },
   {
@@ -60,7 +60,7 @@
     "prenom": "Flavio",
     "utilisateur": "fpouteau",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "admin",
+    "role": ["salarié"],
     "email": "flavio@pouteau.fr"
   },
   {
@@ -68,7 +68,7 @@
     "prenom": "Admin",
     "utilisateur": "admin01",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "admin",
+    "role": ["admin"],
     "email": "admin01@test.fr"
   },
   {
@@ -76,7 +76,7 @@
     "prenom": "Manager",
     "utilisateur": "manager01",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "manager",
+    "role": ["manager"],
     "email": "manager01@test.fr"
   },
   {
@@ -84,7 +84,7 @@
     "prenom": "Employé",
     "utilisateur": "employee01",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "salarié",
+    "role": ["salarié"],
     "email": "employee01@test.fr"
   },
   {
@@ -92,7 +92,7 @@
     "prenom": "Direction",
     "utilisateur": "direction01",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": "direction",
+    "role": ["direction"],
     "email": "direction01@test.fr"
   }
 ]
