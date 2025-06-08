@@ -4,7 +4,7 @@ session_start();
 include 'scripts/fonctions.php';
 
 // Appel de la fonction head
-parametre('img/icon1.png','');
+parametre('img/logo1.png','');
 
 if (isset($_POST['submit'])){
     // ouverture du fichier utilisateurs.json
@@ -45,7 +45,10 @@ if (isset($_POST['submit'])){
             <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid" style="max-width: 600px;"></a>
         </div>
 
-        <div class="container-fluid col-sm-8">
+        <div class="container-fluid col-sm-5 bg-white shadow rounded-end p-5 mx-auto" style="height: 70vh; display: flex; align-items: center; justify-content: center;">
+        <div class="w-100">
+        <div class="container-fluid">
+        <div class="row">
             <h1 class="text-center" >Inscription</h1>
             <form action="inscription.php" method="post" class="">
 
