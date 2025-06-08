@@ -166,10 +166,6 @@ function navigation()
           <a class="nav-link active" href="/SAE203/intranet/annuaire_clients.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire des clients</a>
         </li>
         </ul>
-        <form class="d-flex ">
-            <input class="form-control me-2" type="text" placeholder="Search">
-            <button class="btn btn-primary" type="button">Search</button>
-        </form>
         </nav>
     </div>
 
@@ -205,7 +201,7 @@ function entete()
                 <div class="d-flex align-items-center ms-auto">
 
                     <span class="text-dark me-3">Bonjour, '.$_SESSION["nom"].'</span>
-                          <a href="../html/deconnexion.php" class="btn btn-outline-dark btn-sm">Se déconnecter</a>
+                          <a href="/SAE203/intranet/deconnexion.php" class="btn btn-outline-dark btn-sm">Se déconnecter</a>
 
             </div>
             </div>
