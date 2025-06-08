@@ -16,6 +16,8 @@ if (!isset($_SESSION['nom'])) {
     header('Location: connexion.php');
     exit();
 }
+entete();
+navigation();
 ?>
 <style>
     .dropzone {
