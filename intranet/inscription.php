@@ -42,10 +42,10 @@ if (isset($_POST['submit'])){
     echo '
     <body class="container-fluid row">
 
-        <div class="container-fluid col-sm-5 bg-white shadow rounded-end p-5" style="height: 80vh; align-items: left; justify-content: center;">
+        <div class="container-fluid col-sm-5 bg-white shadow rounded-end p-5" align-items: left; justify-content: center;">
         <div class="w-100">
         <div class="container-fluid">
-        <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid" style="max-width: 150px;"></a>
+        <a><img src="img/logo2.png" alt="Logo" class="img-fluid" style="max-width: 150px;"></a>
             <h1 class="text-center" >Inscription</h1>                                   
             <form action="inscription.php" method="post" class="">
 
