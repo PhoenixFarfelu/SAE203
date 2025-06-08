@@ -92,13 +92,13 @@ if (!isset($_SESSION['nom'])) {
 <?php
     echo $_SESSION['nom'];
     if (isset($_POST['add_file'])) {
-        echo "<script>alert('debut de l'enregistrement');</script>";
         echo "is working";
-        $filename = $_POST['name']=="" ? $_FILES['file-input']['name'] : $_POST['name'];
+        $filetype = strtolower(pathinfo('gestionnaire_fichier'.$_POST['path'].basename($_FILES["file-input"]["name"]),PATHINFO_EXTENSION));
+        $filename = $_POST['name']=="" ? $_FILES['file-input']['name'] : $_POST['name'].$filetype;
         echo "is working with name : $filename";
         if (isset($_SESSION['nom']) && isset($_FILES['file-input']['name'])) {
             move_uploaded_file($_FILES['file-input']['tmp_name'], 'gestionnaire_fichier'.$_POST['path'].$filename);
-            echo 'gestionnaire_fichier'.$_POST['path'].$_FILES['file-input']['name'];
+            echo 'gestionnaire_fichier'.$filename;
             // echo '<meta http-equiv="refresh" content="0;url=profil.php">';
         } else {
             echo "<script>alert('erreur veuillez passer par votre page de profil pour modifier vos données');</script>";
