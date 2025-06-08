@@ -41,8 +41,8 @@ if (isset($_POST['submit'])){
     // Affichage du formulaire
     echo '
     <body class="container-fluid row">
-        <div class="col-sm-2 bg-warning" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
-            <a href="index.php"><img src="images/icon.png" alt="Logo" class="img-fluid"></a>
+        <div class="col-sm-3" style="height: 50vh; display: flex; align-items: center; justify-content: center;">
+            <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid" style="max-width: 600px;"></a>
         </div>
 
         <div class="container-fluid col-sm-8">

@@ -38,9 +38,8 @@ if (isset($_POST['submit'])){
     <body class="bg-light">
         <div class="container vh-100 d-flex justify-content-center align-items-center">
             <div class="row w-100">
-                <div class="col-md-4 d-none d-md-flex flex-column align-items-center justify-content-center bg-warning rounded-start" style="height: 400px;">
-                    <a href="index.php"><img src="img/logo1.png" alt="Logo" class="img-fluid mb-3" style="max-width: 120px;"></a>
-                    <h2 class="fw-bold text-dark">EOSIR</h2>
+                <div class="col-md-2 d-none d-md-flex flex-column align-items-center justify-content-center rounded-start" style="height: 900px;">
+                    <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid mb-3" style="max-width: 600px;"></a>
                 </div>
                 <div class="col-md-6 bg-white shadow rounded-end p-5 mx-auto">
                     <h1 class="text-center mb-4">Connexion</h1>
