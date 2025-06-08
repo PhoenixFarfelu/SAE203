@@ -99,29 +99,38 @@ if (!isset($_SESSION['nom'])) {
         if (isset($_SESSION['nom']) && isset($_FILES['file-input']['name'])) {
             move_uploaded_file($_FILES['file-input']['tmp_name'], 'gestionnaire_fichier'.$_POST['path'].$filename);
             echo 'gestionnaire_fichier'.$filename;
-            // echo '<meta http-equiv="refresh" content="0;url=profil.php">';
+            $json = [
+                'owner' => $_SESSION['nom'],
+                'can_view' => [$_SESSION['nom']],
+                'can_edit' => [$_SESSION['nom']],
+                'can_delete' => [$_SESSION['nom']],
+                'shared_with' => []
+            ];
+
+            file_put_contents("gestionnaire_fichier".$_POST['path'].$filename.".json", json_encode($json));
+            echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
         } else {
             echo "<script>alert('erreur veuillez passer par votre page de profil pour modifier vos données');</script>";
-            // echo '<meta http-equiv="refresh" content="0;url=profil.php">';
+            echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
         }
     }
 
-    function afficherArborescence($dossier, $prefix = '') {
+    function afficherArborescence($dossier, $prefix = "") {
         $contenu = scandir($dossier);
         // c'est comme un `ls -l`, scandir retourne `.` et `..`, il faut les retirer
-        $contenu = array_diff($contenu, ['.', '..']);
+        $contenu = array_diff($contenu, [".", ".."]);
 
         foreach ($contenu as $index => $element) {
-            $cheminComplet = $dossier . '/' . $element;
+            $cheminComplet = $dossier."/".$element;
             $isLast = $index==array_key_last($contenu);
             $branche = "|__&nbsp";
 
-            if (is_dir($cheminComplet) && peut_voir($cheminComplet)) {
-                $nouveauPrefix = $prefix.($isLast ? '&nbsp&nbsp&nbsp&nbsp&nbsp' : '|&nbsp&nbsp&nbsp&nbsp');
+            if (is_dir($cheminComplet) && user_can("view", $cheminComplet)) {
+                $nouveauPrefix = $prefix.($isLast ? "&nbsp&nbsp&nbsp&nbsp&nbsp" : "|&nbsp&nbsp&nbsp&nbsp");
                 echo $prefix.$branche."<strong>$element</strong><br>";
                 afficherArborescence($cheminComplet, $nouveauPrefix);
             }
-            if (is_file($cheminComplet) && peut_voir($cheminComplet)) {
+            if (is_file($cheminComplet) && user_can("view", $cheminComplet)) {
                 $relativePath = htmlspecialchars($cheminComplet); // a securiser
                 $filename = htmlspecialchars($element);
                 echo $prefix.$branche."<a href=\"$relativePath\" download>$element</a><br>";
@@ -129,33 +138,31 @@ if (!isset($_SESSION['nom'])) {
         }
     }
 
-    // gestion des permissions
-    $permissions = [
-        'admin' => ['view' => true, 'upload' => true, 'delete' => true],
-        'user'  => ['view' => true, 'upload' => true, 'delete' => true], //suppression autorisée car un `user` ne verra que ses propres fichiers. Peut poser problème niveau sécurité
-        'guest' => ['view' => true, 'upload' => false, 'delete' => false],
-    ];
-
-    // verifier les droits
-    function a_le_droit($action) {
-        global $permissions;
-        $role = $_SESSION["role"] ?? "guest";
-        return $permissions[$role][$action] ?? false;
+    function get_file_permissions($filepath) {
+        $metaFile = $filepath.".json";
+        if (!file_exists($metaFile)) return null;
+        $json = file_get_contents($metaFile);
+        return json_decode($json, true);
     }
 
-    function peut_voir($chemin) {
-        $nom = $_SESSION["nom"] ?? "";
-        $role = $_SESSION["role"] ?? "guest";
+    function user_can($action, $filepath) {
+        $user = $_SESSION['nom'] ?? '';
+        $role = $_SESSION['role'] ?? 'guest';
 
-        // les admins peuvent tout voir
-        if ($role=="admin") return true;
+        // l'admin a tous les droits
+        if ($role === 'admin') return true;
 
-        // mise en place de dossiers partagés
-        if ((strpos($chemin, "/general")!=false) || (strpos($chemin, '/resources')!=false)) return true;
+        $permissions = get_file_permissions($filepath);
+        if (!$permissions) return false;
 
-        // vérifie si le chemin contient le nom de l'utilisateur
-        return strpos($chemin, '/'.$nom)!=false;
+        $droit = "can_".$action;
+        if (isset($permissions[$droit])) {
+            return (in_array($user, $permissions[$droit]) || in_array("all", $permissions[$droit]));
+        }
+        // en cas de probleme, seul l'owner peut tout faire
+        return $permissions["owner"]==$user;
     }
+
 
     // Appel
     echo "<br>-------------------<br>";
