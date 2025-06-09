@@ -3,30 +3,35 @@
         "name": "The King of Cotton",
         "description": "The King of Cotton is a fabric and haberdashery store offering a wide selection of cotton fabrics, lace, sewing threads, and sewing accessories. They specialize in fabrics for clothing, curtains, and upholstery.",
         "address": "123 Sewing Street, Paris",
-        "phone": "01 23 45 67 89"
+        "phone": "01 23 45 67 89",
+        "logo": "cotton_king.jpg"
     },
     {
         "name": "The Fashion Haberdashery",
         "description": "The Fashion Haberdashery is an online store offering a wide range of fabrics, threads, buttons, and sewing accessories. They also provide sewing classes for beginners and experienced sewists.",
         "address": "456 Fabric Avenue, Lyon",
-        "phone": "04 56 78 90 12"
+        "phone": "04 56 78 90 12",
+        "logo" : "haderdashery.jpg"
     },
     {
         "name": "Fabrics and Creations",
         "description": "Fabrics and Creations is a fabric store offering a selection of cotton, linen, wool, and polyester fabrics. They also provide sewing classes for all levels.",
         "address": "789 Creations Boulevard, Marseille",
-        "phone": "06 78 90 12 34"
+        "phone": "06 78 90 12 34",
+        "logo" : "fabrics.jpg"
     },
     {
         "name": "Art Embroidery",
         "description": "Art Embroidery is a company specializing in artisanal and industrial embroidery. They offer customization services for clothing, accessories, and decorative items.",
         "address": "321 Embroiderers Street, Lille",
-        "phone": "03 21 43 65 87"
+        "phone": "03 21 43 65 87",
+        "logo" : "art.jpg"
     },
     {
         "name": "TechChip",
         "description": "TechChip is a supplier of high-quality electronic chips, specializing in solutions for the automotive industry, connected devices, and embedded systems.",
         "address": "987 Technology Park, Grenoble",
-        "phone": "04 76 12 34 56"
+        "phone": "04 76 12 34 56",
+        "logo" : "techchip.jpg"
     }
 ]
