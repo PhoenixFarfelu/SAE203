@@ -7,7 +7,7 @@ if (!isset($_SESSION['nom'])) {
     header('Location: connexion.php');
     exit();
 }
-parametre("Audalys", "PageAccueil", "accueil" );
+parametre('./img/logo1.png');
 navigation();
 $users = json_decode(file_get_contents("data/utilisateur/utilisateurs.json"), true);
 $clients = json_decode(file_get_contents("data/annuaires/client.json"), true);

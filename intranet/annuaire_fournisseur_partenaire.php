@@ -7,6 +7,6 @@ if (!isset($_SESSION['nom'])) {
     header('Location: connexion.php');
     exit();
 }
-parametre("", "", "" );
 navigation();
+annuaire_partenaires();
 ?>

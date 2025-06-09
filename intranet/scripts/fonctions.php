@@ -195,7 +195,7 @@ function navigation()
             </ul>
             <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
                 <span class="text-dark me-3">Bonjour, '.$_SESSION["nom"].'</span>
-                <a href="/SAE203/intranet/deconnexion.php" class="btn btn-outline-dark btn-sm">Se déconnecter</a>
+                <a href="deconnexion.php" class="btn btn-outline-dark btn-sm">Se déconnecter</a><!--/SAE203/intranet/deconnexion.php pas besoin de mettre le chemin absolue-->
             </ul>
         </div>
     </div>
