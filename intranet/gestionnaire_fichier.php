@@ -52,7 +52,7 @@ navigation();
         <p>Accepted formats : all</p>
         <input type="file" name="file-input" id="file-input" accept=".*" required/>
     </div>
-    <label for="path">absolute file folder (must start and end with "/")</label>
+    <label for="path">absolute file folder</label>
     <input type="text" name="path" id="path" value="/" required><br>
     <label for="path">name empty to use file's name</label>
     <input type="text" name="name" id="name"><br>
@@ -89,10 +89,10 @@ navigation();
                 ];
 
                 file_put_contents("gestionnaire_fichier".$_POST["path"].$filename.".meta.json", json_encode($json));
-                echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+                // echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
             } else {
                 echo "<script>alert('un probleme est survenu');</script>";
-                echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+                // echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
             }
         }        
     }
@@ -223,11 +223,11 @@ navigation();
         // pour le `path`, on retire les éventuels espaces, on s'assure de la présence de "/" au debut et a la fin du `path`
         if (isset($_POST["path"])) $_POST["path"] = htmlspecialchars("/".trim(trim($_POST["path"],"/"))."/");
         // if (strpos($_POST["path"], "..")) echo "<script>alert('Par mesure de sécurité, la chaine \"..\" n\'est pas autorisée');</script>";
-        $chemin_autorise = realpath("/gestionnaire_fichier".$_POST["path"]);
-        echo "$chemin_autorise | ";
-        if ($chemin_autorise==false || strpos($chemin_autorise, $_POST["path"])) {
+        $chemin_autorise = realpath(realpath("").$_POST["path"]);
+        echo "chemin : $chemin_autorise | ";
+        if ($chemin_autorise==false || !strpos($chemin_autorise, $_POST["path"])) {
             echo "<script>alert('Tentative de traversée détéctée !!!');</script>";
-            die("tentative d'attaque, fermeture de la connexion");
+            // die("tentative d'attaque, fermeture de la connexion");
         }
     }
 
