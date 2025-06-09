@@ -2,6 +2,6 @@
   "owner": "mboone",
   "can_view": ["mboone", "nlouer"],
   "can_edit": ["mboone", "nlouer"],
-  "can_delete": ["mboone"],
+  "can_delete": ["mboone", "nlouer"],
   "shared_with": ["nlouer"]
 }

@@ -9,11 +9,11 @@
 
 <?php
 session_start();
-include 'scripts/fonctions.php';
-parametre('img/logo1.png');
+include "scripts/fonctions.php";
+parametre("img/logo1.png");
 
-if (!isset($_SESSION['nom'])) {
-    header('Location: connexion.php');
+if (!isset($_SESSION["nom"])) {
+    header("Location: connexion.php");
     exit();
 }
 navigation();
@@ -63,7 +63,7 @@ navigation();
 </form>
 
 <script>
-    dropzone.addEventListener('drop', handleDrop, false);
+    dropzone.addEventListener("drop", handleDrop, false);
 
     function handleDrop(e) {
         const dt = e.dataTransfer;
@@ -72,27 +72,27 @@ navigation();
     }
 </script>
 <?php
-    echo $_SESSION['nom'];
-    if (isset($_POST['add_file'])) {
+    echo $_SESSION["nom"];
+    if (isset($_POST["add_file"])) {
         echo "is working";
-        $filetype = strtolower(pathinfo('gestionnaire_fichier'.$_POST['path'].basename($_FILES["file-input"]["name"]),PATHINFO_EXTENSION));
-        $filename = $_POST['name']=="" ? $_FILES['file-input']['name'] : $_POST['name'].".".$filetype;
+        $filetype = strtolower(pathinfo("gestionnaire_fichier".$_POST["path"].basename($_FILES["file-input"]["name"]),PATHINFO_EXTENSION));
+        $filename = $_POST["name"]=="" ? $_FILES["file-input"]["name"] : $_POST["name"].".".$filetype;
         echo "is working with name : $filename";
-        if (isset($_SESSION['nom']) && isset($_FILES['file-input']['name'])) {
-            move_uploaded_file($_FILES['file-input']['tmp_name'], 'gestionnaire_fichier'.$_POST['path'].$filename);
-            echo 'gestionnaire_fichier'.$filename;
+        if (isset($_SESSION["nom"]) && isset($_FILES["file-input"]["name"])) {
+            move_uploaded_file($_FILES["file-input"]["tmp_name"], "gestionnaire_fichier".$_POST["path"].$filename);
+            echo "gestionnaire_fichier".$filename;
             $json = [
-                'owner' => $_SESSION['nom'],
-                'can_view' => [$_SESSION['nom']],
-                'can_edit' => [$_SESSION['nom']],
-                'can_delete' => [$_SESSION['nom']],
-                'shared_with' => []
+                "owner" => $_SESSION["nom"],
+                "can_view" => [$_SESSION["nom"]],
+                "can_edit" => [$_SESSION["nom"]],
+                "can_delete" => [$_SESSION["nom"]],
+                "shared_with" => []
             ];
 
-            file_put_contents("gestionnaire_fichier".$_POST['path'].$filename.".json", json_encode($json));
+            file_put_contents("gestionnaire_fichier".$_POST["path"].$filename.".json", json_encode($json));
             echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
         } else {
-            echo "<script>alert('erreur veuillez passer par votre page de profil pour modifier vos données');</script>";
+            echo "<script>alert('un probleme est survenu');</script>";
             echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
         }
     }
@@ -113,9 +113,16 @@ navigation();
                 afficherArborescence($cheminComplet, $nouveauPrefix);
             }
             if (is_file($cheminComplet) && user_can("view", $cheminComplet)) {
-                $relativePath = htmlspecialchars($cheminComplet); // a securiser
+                $relativePath = htmlspecialchars($cheminComplet);
                 $filename = htmlspecialchars($element);
-                echo $prefix.$branche."<a href=\"$relativePath\" download>$element</a><br>";
+                echo $prefix.$branche.'<a href="$relativePath" download>'.$element.'</a>';
+                if (user_can("delete", $cheminComplet)) {
+                    echo '<form action="" method="post" class="d-inline">
+                        <input type="text" name="filename" value="'.$cheminComplet.'" requiered hidden>
+                        <input type="submit" name="rm_file" value="incon à ajouter" class="bg-danger d-inline">
+                    </form>';
+                }
+                echo "<br>";
             }
         }
     }
@@ -149,9 +156,24 @@ navigation();
         return $permissions["owner"]==$user;
     }
 
+    if (isset($_POST["rm_file"])) {
+        if (isset($_POST["filename"])) {
+            if (file_exists($_POST["filename"]) && user_can("delete", $_POST["filename"])) {
+                unlink($_POST["filename"]);
+                try {
+                    unlink($_POST["filename"].".meta.json");
+                } catch(e) {}
+                echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+            }
+        } else {
+            echo "<script>alert('un probleme est survenu');</script>";
+            echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+        }
+    }
+
     // Appel
     echo "<br>-------------------<br>";
-    echo "gestionnaire_fichier/<br>";
-    afficherArborescence('gestionnaire_fichier/');
+    echo "gestionnaire_fichier<br>";
+    afficherArborescence("gestionnaire_fichier");
     echo "<br>-------------------<br>";
 ?>
