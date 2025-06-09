@@ -72,29 +72,31 @@ navigation();
     }
 </script>
 <?php
-    echo $_SESSION["nom"];
+    // echo $_SESSION["nom"];
     if (isset($_POST["add_file"])) {
-        echo "is working";
+        // echo "is working";
         $filetype = strtolower(pathinfo("gestionnaire_fichier".$_POST["path"].basename($_FILES["file-input"]["name"]),PATHINFO_EXTENSION));
         $filename = $_POST["name"]=="" ? $_FILES["file-input"]["name"] : $_POST["name"].".".$filetype;
-        echo "is working with name : $filename";
-        if (isset($_SESSION["nom"]) && isset($_FILES["file-input"]["name"])) {
-            move_uploaded_file($_FILES["file-input"]["tmp_name"], "gestionnaire_fichier".$_POST["path"].$filename);
-            echo "gestionnaire_fichier".$filename;
-            $json = [
-                "owner" => $_SESSION["nom"],
-                "can_view" => [$_SESSION["nom"]],
-                "can_edit" => [$_SESSION["nom"]],
-                "can_delete" => [$_SESSION["nom"]],
-                "shared_with" => []
-            ];
+        // echo "is working with name : $filename";
+        if (path_exist("gestionnaire_fichier".$_POST["path"])) {
+            if (isset($_SESSION["nom"]) && isset($_FILES["file-input"]["name"])) {
+                move_uploaded_file($_FILES["file-input"]["tmp_name"], "gestionnaire_fichier".$_POST["path"].$filename);
+                echo "gestionnaire_fichier".$_POST["path"].$filename;
+                $json = [
+                    "owner" => $_SESSION["nom"],
+                    "can_view" => [$_SESSION["nom"]],
+                    "can_edit" => [$_SESSION["nom"]],
+                    "can_delete" => [$_SESSION["nom"]],
+                    "shared_with" => []
+                ];
 
-            file_put_contents("gestionnaire_fichier".$_POST["path"].$filename.".json", json_encode($json));
-            echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
-        } else {
-            echo "<script>alert('un probleme est survenu');</script>";
-            echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
-        }
+                file_put_contents("gestionnaire_fichier".$_POST["path"].$filename.".meta.json", json_encode($json));
+                // echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+            } else {
+                echo "<script>alert('un probleme est survenu');</script>";
+                // echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+            }
+        }        
     }
 
     function afficherArborescence($dossier, $prefix = "") {
@@ -168,6 +170,41 @@ navigation();
         } else {
             echo "<script>alert('un probleme est survenu');</script>";
             echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+        }
+    }
+
+    function path_exist($path) {
+        if (is_dir($path)) {
+            return true;
+        } else {
+            $absoluteFolder = "";
+            foreach (explode("/", $path) as $folder) {
+                $absoluteFolder .= "/".$folder;
+                $absoluteFolder = ltrim($absoluteFolder,"/");
+                echo $absoluteFolder." | ";
+                if (!is_dir($absoluteFolder)) create_folder($absoluteFolder);
+                // le chemin peut être crée ici mais pour une meilleure lisibilité on appelle une autre fonction
+            }
+            return true;
+        }
+    }
+
+    function create_folder($path) {
+        try {
+            mkdir($path);
+            echo "successfuly created $path | ";
+            $json = [
+                "owner" => $_SESSION["nom"],
+                "can_view" => [$_SESSION["nom"]],
+                "can_edit" => [$_SESSION["nom"]],
+                "can_delete" => [$_SESSION["nom"]],
+                "shared_with" => []
+            ];
+            file_put_contents(rtrim($path,"/").".meta.json", json_encode($json));
+            return true;
+        } catch(Exception $e) {
+            echo "<script>alert('un probleme est survenu : $e');</script>";
+            return false;
         }
     }
 
