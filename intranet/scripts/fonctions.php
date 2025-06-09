@@ -50,7 +50,7 @@ function annuaire_partenaires() {
         <div class="container_fluid m-3 border-bottom pb-3">
             <div class="container_fluid row">
                 <div class="container_fluid col-sm-3 text-center">
-                    <img src="./data/annuaires/logo/'.$element['logo'].'" alt="'.$element['name'].'" class="rounded" style="max-width:100px; height:auto;">
+                    <img src="./data/annuaires/logo/'.$element['logo'].'" alt="'.$element['name'].'" class="rounded" style="max-width:60%; height:auto;">
                 </div>
                 <div class="container_fluid col">
                     <h1>'.$element['name'].'</h1>
