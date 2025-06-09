@@ -175,22 +175,22 @@ function navigation()
     echo('
 <nav class="navbar navbar-expand-lg" style="background-color: #f8f9fa;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/SAE203/intranet/index.php">
+        <a class="navbar-brand" href="index.php">
             <img src="img/logo1.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
                 <li class="nav-item mx-2">
-                    <a class="nav-link active" href="/SAE203/intranet/gestionnaire_fichier.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Gestionnaire de fichier</a>
+                    <a class="nav-link active" href="gestionnaire_fichier.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Gestionnaire de fichier</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link active" href="/SAE203/intranet/annuaire_entreprise.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire de l\'entreprise</a>
+                    <a class="nav-link active" href="annuaire_entreprise.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire de l\'entreprise</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link active" href="/SAE203/intranet/annuaire_fournisseur_partenaire.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaires des fournisseurs partenaires</a>
+                    <a class="nav-link active" href="annuaire_fournisseur_partenaire.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaires des fournisseurs partenaires</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link active" href="/SAE203/intranet/annuaire_clients.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire des clients</a>
+                    <a class="nav-link active" href="annuaire_clients.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire des clients</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
