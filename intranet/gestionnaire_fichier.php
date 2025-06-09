@@ -1,5 +1,4 @@
 <!-- to do list :
-    - sanitariser les inputs utilisateurs
     - autoriser l'overwrite (si droits accordés)
     - sécuriser les fichiers de conf (empecher l'accès aux fichiers .json)
     - Js pour reduire les dossiers
@@ -223,7 +222,13 @@ navigation();
         if (isset($_POST["name"])) $_POST["name"] = htmlspecialchars(trim($_POST["name"]));
         // pour le `path`, on retire les éventuels espaces, on s'assure de la présence de "/" au debut et a la fin du `path`
         if (isset($_POST["path"])) $_POST["path"] = htmlspecialchars("/".trim(trim($_POST["path"],"/"))."/");
-        if (strpos($_POST["path"], "..")) echo "<script>alert('Par mesure de sécurité, la chaine \"..\" n\'est pas autorisée');</script>";
+        // if (strpos($_POST["path"], "..")) echo "<script>alert('Par mesure de sécurité, la chaine \"..\" n\'est pas autorisée');</script>";
+        $chemin_autorise = realpath("/gestionnaire_fichier".$_POST["path"]);
+        echo "$chemin_autorise | ";
+        if ($chemin_autorise==false || strpos($chemin_autorise, $_POST["path"])) {
+            echo "<script>alert('Tentative de traversée détéctée !!!');</script>";
+            die("tentative d'attaque, fermeture de la connexion");
+        }
     }
 
     function rm_dir_r($dir) {
