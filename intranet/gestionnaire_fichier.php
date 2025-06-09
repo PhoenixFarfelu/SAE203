@@ -121,7 +121,7 @@ navigation();
             if (is_file($cheminComplet) && user_can("view", $cheminComplet)) {
                 $relativePath = htmlspecialchars($cheminComplet);
                 $filename = htmlspecialchars($element);
-                echo $prefix.$branche.'<a href="$relativePath" download>'.$element.'</a>';
+                echo $prefix.$branche.'<a href="'.$relativePath.'" download>'.$element.'</a>';
                 if (user_can("delete", $cheminComplet)) {
                     echo '<form action="" method="post" class="d-inline">
                         <input type="text" name="filename" value="'.$cheminComplet.'" requiered hidden>
@@ -222,13 +222,12 @@ navigation();
         if (isset($_POST["name"])) $_POST["name"] = htmlspecialchars(trim($_POST["name"]));
         // pour le `path`, on retire les éventuels espaces, on s'assure de la présence de "/" au debut et a la fin du `path`
         if (isset($_POST["path"])) $_POST["path"] = htmlspecialchars("/".trim(trim($_POST["path"],"/"))."/");
-        // if (strpos($_POST["path"], "..")) echo "<script>alert('Par mesure de sécurité, la chaine \"..\" n\'est pas autorisée');</script>";
-        $chemin_autorise = realpath(realpath("").$_POST["path"]);
-        echo "chemin : $chemin_autorise | ";
-        if ($chemin_autorise==false || !strpos($chemin_autorise, $_POST["path"])) {
-            echo "<script>alert('Tentative de traversée détéctée !!!');</script>";
-            // die("tentative d'attaque, fermeture de la connexion");
-        }
+        if (strpos($_POST["path"], "..")) echo "<script>alert('Par mesure de sécurité, la chaine \"..\" n\'est pas autorisée');</script>";
+        $chemin_autorise = realpath("gestionnaire_fichier".$_POST["path"]);
+        // if ($chemin_autorise===false || strpos($chemin_autorise, realpath(__DIR__))!==0) {
+        //     echo "<script>alert('Tentative de traversée détéctée !!!');</script>";
+        //     die("tentative d'attaque, fermeture de la connexion");
+        // }
     }
 
     function rm_dir_r($dir) {
