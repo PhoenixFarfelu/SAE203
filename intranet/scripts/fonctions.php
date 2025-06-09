@@ -43,14 +43,27 @@ function read($filename,$JSON=false) {
 function annuaire_partenaires() {
     // if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
     $data = read("data/annuaires/partenaires.json", $JSON=true);
+    echo '<div class="container_fluid p-5">';
+    echo '<h1 class="text-center mb-5">Nos Partenaire</h1>';
     foreach ($data as $element) {
-        echo "
-    nom : ".$element['nom'].",<br>
-    |__description : ".$element['description'].",<br>
-    |__adresse: ".$element['adresse'].",<br>
-    |__telephone: ".$element['telephone']."<br>
-    <br>";
+        echo '
+        <div class="container_fluid m-3 border-bottom pb-3">
+            <div class="container_fluid row">
+                <div class="container_fluid col-sm-3 text-center">
+                    <img src="./data/annuaires/logo/'.$element['logo'].'" alt="'.$element['name'].'" class="rounded" style="max-width:100px; height:auto;">
+                </div>
+                <div class="container_fluid col">
+                    <h1>'.$element['name'].'</h1>
+                    <p><strong>Description : </strong>'.$element['description'].'<p>
+                    <div class="row">
+                        <span class="col"><strong>Téléphone : </strong>'.$element['phone'].'</span>
+                        <span class="col"><strong>Adresse : </strong>'.$element['address'].'</span>
+                    </div>
+                </div>
+            </div>
+        </div>';
     }
+    echo '</div>';
     
 }
 
