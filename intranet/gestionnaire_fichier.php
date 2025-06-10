@@ -48,6 +48,7 @@ navigation();
         cursor: pointer;
         z-index: 1;
     }
+
 </style>
 <div class="container my-5">
     <h1 class="text-center text-primary mb-4">Gestionnaire de Fichiers</h1>
