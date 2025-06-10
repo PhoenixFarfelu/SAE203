@@ -124,7 +124,9 @@ navigation();
                 echo '<span class="text-primary fw-bold" onclick="toggleFolder(event)" style="cursor: pointer;">'.$element.'</span>';
                 echo '<form action="" method="post" class="d-inline">
                     <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
-                    <button type="submit" name="rm" class="btn btn-danger btn-sm">Supprimer</button>
+                    <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
+                        <img src="img/supprimer.png" alt="Supprimer" style="width: 20px; height: 20px;">
+                    </button>
                 </form>';
                 echo '</div>';
                 echo '<ul class="list-group d-none">';
@@ -138,7 +140,9 @@ navigation();
                 echo '<a href="'.$relativePath.'" download class="text-dark">'.$element.'</a>';
                 echo '<form action="" method="post" class="d-inline">
                     <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
-                    <button type="submit" name="rm" class="btn btn-danger btn-sm">Supprimer</button>
+                    <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
+                        <img src="img/supprimer.png" alt="Supprimer" style="width: 20px; height: 20px;">
+                    </button>
                 </form>';
                 echo '</div>';
                 echo '</li>';
