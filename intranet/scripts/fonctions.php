@@ -90,7 +90,7 @@ function annuaire_employer(){
     foreach ($data as $key => $value) {
         echo '
             <tr>
-                <td><img src="./data/annuaires/logo/'.$value['photo'].'" alt="'.$value['nom'].' '.$value['prenom'].'" class="rounded" style="max-width:60%; height:auto;"></td>
+                <td><img src="./data/annuaires/photo/'.$value['photo'].'" alt="'.$value['nom'].' '.$value['prenom'].'" class="rounded" style="max-width:20%; height:auto;"></td>
                 <td>'.$value['nom'].'</td>
                 <td>'.$value['prenom'].'</td>
                 <td>'.$value['fonction'].'</td>
