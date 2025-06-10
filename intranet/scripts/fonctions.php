@@ -69,7 +69,7 @@ function annuaire_partenaires() {
 
 function annuaire_employer(){
         echo '
-    <h1 class="my-4 text-center">Liste des clients</h1>
+    <h1 class="my-4 text-center">Liste des employers</h1>
     <div class="container-fluid m-0">
             <table class="table table-striped">
                 <thead>
@@ -102,7 +102,7 @@ function annuaire_employer(){
                         <form action="/SAE203/intranet/supprime.php" method="post">
                             <button type="submit" class="btn btn-dark" name="submit" value="'.$key.'">Supprimer</button>
                         </form>
-                        <form action="./modifie.php" method="post">
+                        <form action="modifi.php" method="post">
                             <button type="submit" class="btn btn-dark" name="submit" value="'.$key.'">Modifier</button>
                         </form>
                     
