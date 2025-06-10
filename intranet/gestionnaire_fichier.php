@@ -75,10 +75,12 @@ navigation();
 </div>
 <script>
     function toggleFolder(event) {
-        const folderElement = event.target;
+        const folderElement = event.target.closest('.text-primary');
         const folderContent = folderElement.closest('li').querySelector('ul');
+        const arrow = folderElement.querySelector('span');
         if (folderContent) {
             folderContent.classList.toggle('d-none');
+            arrow.textContent = folderContent.classList.contains('d-none') ? '▶' : '▼';
         }
     }
 </script>
@@ -121,7 +123,9 @@ navigation();
             if (is_dir($cheminComplet) && user_can("view", $cheminComplet)) {
                 echo '<li class="list-group-item">';
                 echo '<div class="d-flex justify-content-between align-items-center">';
-                echo '<span class="text-primary fw-bold" onclick="toggleFolder(event)" style="cursor: pointer;">'.$element.'</span>';
+                echo '<span class="text-primary fw-bold d-flex align-items-center" onclick="toggleFolder(event)" style="cursor: pointer;">
+                        <span class="me-2">▶</span>'.$element.'
+                      </span>';
                 echo '<form action="" method="post" class="d-inline">
                     <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
                     <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
