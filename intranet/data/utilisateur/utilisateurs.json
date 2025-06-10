@@ -4,7 +4,7 @@
     "prenom": "Neven",
     "utilisateur": "nlouer",
     "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié"],
+    "role": ["salarié","admin"],
     "email": "neven@louer.fr"
   },
   {

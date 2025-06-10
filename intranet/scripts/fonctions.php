@@ -67,6 +67,58 @@ function annuaire_partenaires() {
     
 }
 
+function annuaire_employer(){
+        echo '
+    <h1 class="my-4 text-center">Liste des clients</h1>
+    <div class="container-fluid m-0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Fonction</th>
+                        <th>Email</th>
+                        <th>bio</th>';
+        if (in_array("admin",$_SESSION['role'])){
+            echo '<th>Modification</th>';
+        }
+                echo '</tr>
+                </thead>
+                <tbody>';
+    $data = read("data/annuaires/entreprise.json", $JSON=true);
+    foreach ($data as $key => $value) {
+        echo '
+            <tr>
+                <td><img src="./data/annuaires/logo/'.$value['photo'].'" alt="'.$value['nom'].' '.$value['prenom'].'" class="rounded" style="max-width:60%; height:auto;"></td>
+                <td>'.$value['nom'].'</td>
+                <td>'.$value['prenom'].'</td>
+                <td>'.$value['fonction'].'</td>
+                <td>'.$value['email'].'</td>
+                <td>'.$value['bio'].'</td>';
+        if (in_array("admin",$_SESSION['role'])){
+            echo '
+                    <td>
+                        <form action="/SAE203/intranet/supprime.php" method="post">
+                            <button type="submit" class="btn btn-dark" name="submit" value="'.$key.'">Supprimer</button>
+                        </form>
+                        <form action="./modifie.php" method="post">
+                            <button type="submit" class="btn btn-dark" name="submit" value="'.$key.'">Modifier</button>
+                        </form>
+                    
+                    </td>';
+        }
+        echo '</tr>';
+
+    }
+    echo '
+        </tbody>
+    </table>
+    </div>
+
+    
+    ';
+}
 
 function annuaire_client_ameliore() {
     echo '

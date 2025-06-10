@@ -7,6 +7,8 @@ if (!isset($_SESSION['nom'])) {
     header('Location: connexion.php');
     exit();
 }
-parametre("", "", "" );
+echo '<body>';
 navigation();
+annuaire_employer();
+echo '</body>';
 ?>
