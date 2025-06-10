@@ -17,21 +17,25 @@ navigation();
 ?>
 <style>
     .dropzone {
-        border: 2px #20ff20;
+        border: 2px dashed #007bff;
         border-radius: 8px;
         padding: 1.5rem;
         text-align: center;
         cursor: pointer;
         transition: all 0.3s ease;
-        background-color: dashedrgb(129, 129, 129);
+        background-color: #e9ecef;
         position: relative;
         height: 160px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         max-width: 600px;
-        margin: 0 auto;
+        margin: 20px auto;
+    }
+
+    .dropzone:hover {
+        background-color: #d4edda;
     }
 
     .dropzone input[type="file"] {
@@ -44,28 +48,38 @@ navigation();
         cursor: pointer;
         z-index: 1;
     }
-
 </style>
-<form action="" method="post" enctype="multipart/form-data">
-    <div class="dropzone" id="unified-dropzone">
-        <p>Drag your file here or click to select</p>
-        <p>Accepted formats : all</p>
-        <input type="file" name="file-input" id="file-input" accept=".*" required/>
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">Gestionnaire de Fichiers</h1>
+    <form action="" method="post" enctype="multipart/form-data" class="mb-4">
+        <div class="dropzone" id="unified-dropzone">
+            <p>Glissez votre fichier ici ou cliquez pour sélectionner</p>
+            <p>Formats acceptés : tous</p>
+            <input type="file" name="file-input" id="file-input" accept=".*" required />
+        </div>
+        <div class="mb-3">
+            <label for="path" class="form-label">Dossier absolu :</label>
+            <input type="text" name="path" id="path" class="form-control" value="/" required />
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom (laisser vide pour utiliser le nom du fichier) :</label>
+            <input type="text" name="name" id="name" class="form-control" />
+        </div>
+        <button type="submit" name="add_file" class="btn btn-primary">Ajouter le fichier</button>
+    </form>
+    <hr>
+    <h2 class="text-center text-secondary my-4">Arborescence des fichiers</h2>
+    <div>
+        <?php afficherArborescence("gestionnaire_fichier"); ?>
     </div>
-    <label for="path">absolute file folder</label>
-    <input type="text" name="path" id="path" value="/" required><br>
-    <label for="path">name empty to use file's name</label>
-    <input type="text" name="name" id="name"><br>
-    <input type="submit" name="add_file" value="add_file">
-</form>
-
+</div>
 <script>
-    dropzone.addEventListener("drop", handleDrop, false);
-
-    function handleDrop(e) {
-        const dt = e.dataTransfer;
-        const file = dt.files[0];
-        handleFile(file);
+    function toggleFolder(event) {
+        const folderElement = event.target;
+        const folderContent = folderElement.closest('li').querySelector('ul');
+        if (folderContent) {
+            folderContent.classList.toggle('d-none');
+        }
     }
 </script>
 <?php
@@ -97,41 +111,40 @@ navigation();
         }        
     }
 
-    function afficherArborescence($dossier, $prefix = "") {
+    function afficherArborescence($dossier) {
         $contenu = scandir($dossier);
-        // c'est comme un `ls -l`, scandir retourne `.` et `..`, il faut les retirer
         $contenu = array_diff($contenu, [".", ".."]);
-        foreach ($contenu as $index => $element) {
+        echo '<ul class="list-group">';
+        foreach ($contenu as $element) {
             $cheminComplet = $dossier."/".$element;
-            $isLast = $index==array_key_last($contenu);
-            $branche = "|__&nbsp";
 
             if (is_dir($cheminComplet) && user_can("view", $cheminComplet)) {
-                $nouveauPrefix = $prefix.($isLast ? "&nbsp&nbsp&nbsp&nbsp&nbsp" : "|&nbsp&nbsp&nbsp&nbsp");
-                echo $prefix.$branche."<strong>$element</strong>";
-                if (user_can("delete", $cheminComplet)) {
-                    echo '<form action="" method="post" class="d-inline">
-                        <input type="text" name="filename" value="'.$cheminComplet.'" requiered hidden>
-                        <input type="submit" name="rm" value="icon à ajouter" class="bg-danger d-inline">
-                    </form>';
-                }
-                echo "<br>";
-                afficherArborescence($cheminComplet, $nouveauPrefix);
-            }
-            if (is_file($cheminComplet) && user_can("view", $cheminComplet)) {
+                echo '<li class="list-group-item">';
+                echo '<div class="d-flex justify-content-between align-items-center">';
+                echo '<span class="text-primary fw-bold" onclick="toggleFolder(event)" style="cursor: pointer;">'.$element.'</span>';
+                echo '<form action="" method="post" class="d-inline">
+                    <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
+                    <button type="submit" name="rm" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>';
+                echo '</div>';
+                echo '<ul class="list-group d-none">';
+                afficherArborescence($cheminComplet);
+                echo '</ul>';
+                echo '</li>';
+            } elseif (is_file($cheminComplet) && user_can("view", $cheminComplet)) {
                 $relativePath = htmlspecialchars($cheminComplet);
-                $filename = htmlspecialchars($element);
-                echo $prefix.$branche.'<a href="'.$relativePath.'" download>'.$element.'</a>';
-                if (user_can("delete", $cheminComplet)) {
-                    echo '<form action="" method="post" class="d-inline">
-                        <input type="text" name="filename" value="'.$cheminComplet.'" requiered hidden>
-                        <input type="submit" name="rm" value="icon à ajouter" class="bg-danger d-inline">
-                    </form>';
-                }
-                echo "<br>";
+                echo '<li class="list-group-item">';
+                echo '<div class="d-flex justify-content-between align-items-center">';
+                echo '<a href="'.$relativePath.'" download class="text-dark">'.$element.'</a>';
+                echo '<form action="" method="post" class="d-inline">
+                    <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
+                    <button type="submit" name="rm" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>';
+                echo '</div>';
+                echo '</li>';
             }
-            
         }
+        echo '</ul>';
     }
 
     function get_file_permissions($filepath) {
@@ -241,11 +254,4 @@ navigation();
         return rmdir($dir);
     }
 
-?>
-<?php
-    // Appel
-    echo "<br>-------------------<br>";
-    echo "gestionnaire_fichier<br>";
-    afficherArborescence("gestionnaire_fichier");
-    echo "<br>-------------------<br>";
 ?>
