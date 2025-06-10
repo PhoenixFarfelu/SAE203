@@ -271,8 +271,8 @@ function navigation()
 
         // Parcourir chaque lien et ajouter des gestionnaires d\'événements
         function agrandir(link){
-        link.style.fontSize = \'1.5rem\'; // Agrandir la taille de la police
-        link.style.transition = \'font-size 0.3s ease-in-out, color 0.3s ease-in-out\'; // Transition fluide
+        link.style.fontSize = \'1.2rem\'; // Agrandir la taille de la police
+        link.style.transition = \'font-size 0.2s ease-in-out, color 0.2s ease-in-out\'; // Transition fluide
     
         }
         function revenir(link){
