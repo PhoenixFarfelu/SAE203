@@ -16,7 +16,7 @@ echo '<h1 class="my-4 text-center">Liste des employers</h1>';
 if (in_array("admin",$_SESSION['role'])){
     echo '
         <div class="text-center mb-4">
-            <a href="ajout_employer.php" class="btn btn-primary">Ajouter un employé</a>
+            <a href="ajout_employe.php" class="btn btn-primary">Ajouter un employé</a>
         </div>';
 }
 echo '
@@ -40,7 +40,7 @@ $data = read("data/annuaires/entreprise.json", $JSON=true);
 foreach ($data as $key => $value) {
     echo '
         <tr>
-            <td><img src="./data/annuaires/logo/'.$value['photo'].'" alt="'.$value['nom'].' '.$value['prenom'].'" class="rounded" style="max-width:60%; height:auto;"></td>
+            <td><img src="./data/annuaires/photo/'.$value['photo'].'" alt="'.$value['nom'].' '.$value['prenom'].'" class="rounded" style="max-width:60%; height:auto;"></td>
             <td>'.$value['nom'].'</td>
             <td>'.$value['prenom'].'</td>
             <td>'.$value['fonction'].'</td>
