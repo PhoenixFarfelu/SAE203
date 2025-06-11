@@ -16,7 +16,7 @@ if (isset($_POST['submit'])){
     $fonction = $_POST['fonction'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
-    $photo = $_POST['photo'];
+    // $photo = $_POST['photo']; // Not needed, file uploads are in $_FILES
 
 
     // Vérification si le nom d'utilisateur est déjà utilisé
@@ -34,18 +34,23 @@ if (isset($_POST['submit'])){
     file_put_contents("data/utilisateur/utilisateurs.json", json_encode($data, JSON_PRETTY_PRINT));
 
     $data = read("data/annuaires/entreprise.json", $JSON=true);
-    $liste = array('nom' =>$nom, 'prenom' => $prenom, 'role'=>$role, 'email'=> $email, 'bio'=>$bio,'fonction'=>$fonction, 'photo'=> $photo);
+    $filename = $utilisateur.".jpeg";
+    $liste = array('nom' =>$nom, 'prenom' => $prenom, 'role'=>$role, 'email'=> $email, 'bio'=>$bio,'fonction'=>$fonction, 'photo'=> $filename);
     $i = 1;
-    while (!(isset($data[$i]))) {
+    while (isset($data[$i])) {
         $i += 1;
     }
-    echo $i;
     $data[$i] = $liste;
-    echo '<pre>';
-    print_r($liste);
-    echo '</pre>';
+    
     file_put_contents("data/annuaires/entreprise.json", json_encode($data, JSON_PRETTY_PRINT));
-
+    print_r($_FILES);
+    // Ensure the photo directory exists
+    if (!is_dir("data/annuaires/photo")) {
+        mkdir("data/annuaires/photo", 0777, true);
+    }
+    if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] === UPLOAD_ERR_OK) {
+        move_uploaded_file($_FILES["photo"]["tmp_name"], "data/annuaires/photo/".$filename);
+    }
     //TODO : Faire la gestion de photo
     // header('Location: annuaire_entreprise.php');
     // exit();
@@ -60,7 +65,7 @@ if (isset($_POST['submit'])){
         <div class="container-fluid">
         <a><img src="img/logo2.png" alt="Logo" class="img-fluid" style="max-width: 150px;"></a>
             <h1 class="text-center" >Inscription</h1>                                   
-            <form action="ajout_employe.php" method="post" class="">
+            <form action="ajout_employe.php" method="post" enctype="multipart/form-data" class="">
 
                 <div class="border-bottom mb-3">
 
