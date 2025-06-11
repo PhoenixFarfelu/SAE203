@@ -9,9 +9,19 @@ $data[$_POST['submit']]['fonction'] = $_POST['fonction'];
 $data[$_POST['submit']]['email'] = $_POST['email'];
 $data[$_POST['submit']]['bio'] = $_POST['bio'];
 
-if (isset($_FILES["file-input"])){
-    $extension = explode('.',$_FILES["photo"]["tmp_name"])[1]
-    move_uploaded_file($_FILES["photo"]["tmp_name"], "data/annuaires/photo/".$filename.'.'.$extension);
+// Supprimer l'ancienne photo si elle existe
+if (!empty($data[$_POST['submit']]['photo'])) {
+    $oldPhotoPath = "data/annuaires/photo/" . $data[$_POST['submit']]['photo'];
+    if (file_exists($oldPhotoPath)) {
+        unlink($oldPhotoPath);
+    }
+}
+
+// Gestion de l'upload de la nouvelle photo
+if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] === UPLOAD_ERR_OK) {
+    $filename = uniqid('photo_') . '.jpeg';
+    move_uploaded_file($_FILES["photo"]["tmp_name"], "data/annuaires/photo/" . $filename);
+    $data[$_POST['submit']]['photo'] = $filename;
 }
 file_put_contents("data/annuaires/entreprise.json", json_encode($data, JSON_PRETTY_PRINT));
 header('Location: annuaire_entreprise.php');

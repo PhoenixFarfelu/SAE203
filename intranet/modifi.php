@@ -14,7 +14,7 @@ echo '
     <div class="container-fluid">
     <a><img src="img/logo2.png" alt="Logo" class="img-fluid" style="max-width: 150px;"></a>
         <h1 class="text-center" >Inscription</h1>                                   
-        <form action="traitement_modif.php" method="post" class="">
+        <form action="traitement_modif.php" method="post" enctype="multipart/form-data" class="">
 
             <div class="border-bottom mb-3">
 

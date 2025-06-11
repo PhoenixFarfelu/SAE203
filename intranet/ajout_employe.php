@@ -43,7 +43,7 @@ if (isset($_POST['submit'])){
     $data[$i] = $liste;
     
     file_put_contents("data/annuaires/entreprise.json", json_encode($data, JSON_PRETTY_PRINT));
-    print_r($_FILES);
+    // print_r($_FILES);
     // Ensure the photo directory exists
     if (!is_dir("data/annuaires/photo")) {
         mkdir("data/annuaires/photo", 0777, true);
@@ -51,9 +51,9 @@ if (isset($_POST['submit'])){
     if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] === UPLOAD_ERR_OK) {
         move_uploaded_file($_FILES["photo"]["tmp_name"], "data/annuaires/photo/".$filename);
     }
-    //TODO : Faire la gestion de photo
-    // header('Location: annuaire_entreprise.php');
-    // exit();
+
+    header('Location: annuaire_entreprise.php');
+    exit();
 
 } else {
     // Affichage du formulaire
