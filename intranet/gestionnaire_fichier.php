@@ -1,7 +1,6 @@
 <!-- to do list :
     - autoriser l'overwrite (si droits accordés)
     - sécuriser les fichiers de conf (empecher l'accès aux fichiers .json)
-    - Js pour reduire les dossiers
     - couper l'accès au gestionnaire de fichier (le dossier, pas la page) pou n'y acceder que par php -->
 
 <?php
@@ -127,12 +126,14 @@ navigation();
                 echo '<span class="text-primary fw-bold d-flex align-items-center" onclick="toggleFolder(event)" style="cursor: pointer;">
                         <span class="me-2">▶</span>'.$element.'
                       </span>';
-                echo '<form action="" method="post" class="d-inline">
-                    <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
-                    <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
-                        <img src="img/supprimer.png" alt="Supprimer" style="width: 20px; height: 20px;">
-                    </button>
-                </form>';
+                if (user_can("delete", $cheminComplet)) {
+                    echo '<form action="" method="post" class="d-inline">
+                        <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
+                        <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
+                            <img src="img/supprimer.png" alt="Supprimer" style="width: 20px; height: 20px;">
+                        </button>
+                    </form>';
+                }
                 echo '</div>';
                 echo '<ul class="list-group d-none">';
                 afficherArborescence($cheminComplet);
@@ -143,12 +144,20 @@ navigation();
                 echo '<li class="list-group-item">';
                 echo '<div class="d-flex justify-content-between align-items-center">';
                 echo '<a href="'.$relativePath.'" download class="text-dark">'.$element.'</a>';
-                echo '<form action="" method="post" class="d-inline">
-                    <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
-                    <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
-                        <img src="img/supprimer.png" alt="Supprimer" style="width: 20px; height: 20px;">
-                    </button>
-                </form>';
+                if (user_can("delete", $cheminComplet)) {
+                    echo '<form action="" method="post" class="d-inline">
+                        <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
+                        <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
+                            <img src="img/supprimer.png" alt="Supprimer" style="width: 20px; height: 20px;">
+                        </button>
+                    </form>';
+                }
+                if (is_owner($cheminComplet)) {
+                    echo '<form action="share.php" method="post" class="d-inline">
+                        <input type="text" name="filename" value="'.$cheminComplet.'" requiered hidden>
+                        <input type="submit" name="share" value="icon à ajouter" class="bg-warning d-inline">
+                    </form>';
+                }
                 echo '</div>';
                 echo '</li>';
             }
@@ -163,6 +172,19 @@ navigation();
         return json_decode($json, true);
     }
 
+    function is_owner($filepath) {
+        $user = $_SESSION["nom"] ?? "";
+        $role = $_SESSION["role"] ?? ["guest"];
+
+        $permissions = get_file_permissions($filepath);
+        if (!$permissions) return false;
+
+        // l'admin a tous les droits
+        if (in_array("admin",$role)) return true;        
+
+        return $permissions["owner"]==$user;
+    }
+
     function user_can($action, $filepath) {
         $user = $_SESSION["nom"] ?? "";
         $role = $_SESSION["role"] ?? "guest";
@@ -171,7 +193,7 @@ navigation();
         if (!$permissions) return false;
 
         // l'admin a tous les droits
-        if (in_array("admin",$role)) return true;        
+        if (in_array("admin",$role)) return true;
 
         $droit = "can_".$action;
         if (isset($permissions[$droit])) {
