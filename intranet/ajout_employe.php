@@ -150,7 +150,7 @@ if (isset($_POST['submit'])){
                 </div>
 
                 <!-- Submit -->
-                <button type="submit" class="btn btn-dark" name="submit" value="submit">S\'inscrire</button>
+                <button type="submit" class="btn btn-dark" name="submit" value="submit">Inscrire</button>
             </form> 
             <div class="row pt-3">
                 <a href="annuaire_entreprise.php" class="btn btn-dark" class="col">Annuler</a>
