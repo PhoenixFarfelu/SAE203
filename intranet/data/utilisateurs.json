@@ -1,0 +1,9 @@
+[
+    {
+        "utilisateur": null,
+        "motdepasse": "$2y$10$6GgX5D8V7Ul2yLVzUr6DSetEbKRt0Jx5BuvLrpByt1zaA5vyJ7hSS",
+        "email": "neven@louer.fr",
+        "vehicule": null,
+        "role": "user"
+    }
+]

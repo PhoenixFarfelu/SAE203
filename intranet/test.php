@@ -1,6 +1,7 @@
 <?php
-include "scripts/fonctions.php";
-parametre('img/logo1.png');
+// session_start();
+// include "scripts/fonctions.php";
+// print_r($_SESSION);
 // annuaire_client();
 
 // Gestionnaire de fichier
@@ -16,5 +17,7 @@ parametre('img/logo1.png');
 // }
 // echo '</body>';
 
-annuaire_client();
+$test = array(1 => "hbuhbu", 2 => "ihbiubh");
+file_put_contents('data/annuaires/entreprise.json', json_encode($test, JSON_PRETTY_PRINT));
+
 ?>

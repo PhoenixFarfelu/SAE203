@@ -43,40 +43,129 @@ function read($filename,$JSON=false) {
 function annuaire_partenaires() {
     // if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
     $data = read("data/annuaires/partenaires.json", $JSON=true);
+    echo '<div class="container_fluid p-5">';
+    echo '<h1 class="text-center mb-5">Nos Partenaire</h1>';
     foreach ($data as $element) {
-        echo "
-    nom : ".$element['nom'].",<br>
-    |__description : ".$element['description'].",<br>
-    |__adresse: ".$element['adresse'].",<br>
-    |__telephone: ".$element['telephone']."<br>
-    <br>";
+        echo '
+        <div class="container_fluid m-3 border-bottom pb-3">
+            <div class="container_fluid row">
+                <div class="container_fluid col-sm-3 text-center">
+                    <img src="./data/annuaires/logo/'.$element['logo'].'" alt="'.$element['name'].'" class="rounded" style="max-width:60%; height:auto;">
+                </div>
+                <div class="container_fluid col">
+                    <h1>'.$element['name'].'</h1>
+                    <p><strong>Description : </strong>'.$element['description'].'<p>
+                    <div class="row">
+                        <span class="col"><strong>Téléphone : </strong>'.$element['phone'].'</span>
+                        <span class="col"><strong>Adresse : </strong>'.$element['address'].'</span>
+                    </div>
+                </div>
+            </div>
+        </div>';
     }
+    echo '</div>';
     
 }
 
-function annuaire_client() {
-    // if (!in_array($filename,["client","entrprise","partenaires"])) {echo "Bad name for 'filename'"; return;}
-    $data = read("data/annuaires/client.json", $JSON=true);
-    foreach ($data as $element) {
-        echo "
-    nom : ".$element['nom']." ".$element['prenom'].",<br>
-    |__Adresse : ".$element['adresse'].",<br>
-    |__Telephone : ".$element['telephone'].",<br>
-    |__Email : ".$element['email'].",<br>
-    |__Fiche client : 
-    <form method='post' action='scripts/telecharger_fiche_client.php' style='display:inline;'>
-        <input type='hidden' name='nom' value='".$element['nom']."'>
-        <input type='hidden' name='prenom' value='".$element['prenom']."'>
-        <input type='hidden' name='adresse' value='".$element['adresse']."'>
-        <input type='hidden' name='telephone' value='".$element['telephone']."'>
-        <input type='hidden' name='email' value='".$element['email']."'>
-        <button type='submit' class='btn btn-primary btn-sm'>Télécharger</button>
-    </form>
-    <br>";
+function annuaire_employer(){
+        echo '
+    <h1 class="my-4 text-center">Liste des employers</h1>
+    <div class="container-fluid m-0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Fonction</th>
+                        <th>Email</th>
+                        <th>bio</th>';
+        if (in_array("admin",$_SESSION['role'])){
+            echo '<th>Modification</th>';
+        }
+                echo '</tr>
+                </thead>
+                <tbody>';
+    $data = read("data/annuaires/entreprise.json", $JSON=true);
+    foreach ($data as $key => $value) {
+        echo '
+            <tr>
+                <td><img src="./data/annuaires/photo/'.$value['photo'].'" alt="'.$value['nom'].' '.$value['prenom'].'" class="rounded" style="max-width:20%; height:auto;"></td>
+                <td>'.$value['nom'].'</td>
+                <td>'.$value['prenom'].'</td>
+                <td>'.$value['fonction'].'</td>
+                <td>'.$value['email'].'</td>
+                <td>'.$value['bio'].'</td>';
+        if (in_array("admin",$_SESSION['role'])){
+            echo '
+                    <td>
+                        <form action="/SAE203/intranet/supprime.php" method="post">
+                            <button type="submit" class="btn btn-dark" name="submit" value="'.$key.'">Supprimer</button>
+                        </form>
+                        <form action="modifi.php" method="post">
+                            <button type="submit" class="btn btn-dark" name="submit" value="'.$key.'">Modifier</button>
+                        </form>
+                    
+                    </td>';
+        }
+        echo '</tr>';
+
     }
+    echo '
+        </tbody>
+    </table>
+    </div>
+
     
+    ';
 }
 
+function annuaire_client_ameliore() {
+    echo '
+    <h1 class="my-4 text-center">Liste des clients</h1>
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Email</th>
+                        <th>Fiche client</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
+    $clients = json_decode(file_get_contents("data/annuaires/client.json"), true);
+    foreach ($clients as $client) {
+        echo '
+        <tr>
+            <td>' . htmlspecialchars($client['nom']) . '</td>
+            <td>' . htmlspecialchars($client['prenom']) . '</td>
+            <td>' . htmlspecialchars($client['adresse']) . '</td>
+            <td>' . htmlspecialchars($client['telephone']) . '</td>
+            <td>' . htmlspecialchars($client['email']) . '</td>
+            <td>
+                <form method="post" action="scripts/telecharger_fiche_client.php" style="display:inline;">
+                    <input type="hidden" name="nom" value="' . htmlspecialchars($client['nom']) . '">
+                    <input type="hidden" name="prenom" value="' . htmlspecialchars($client['prenom']) . '">
+                    <input type="hidden" name="adresse" value="' . htmlspecialchars($client['adresse']) . '">
+                    <input type="hidden" name="telephone" value="' . htmlspecialchars($client['telephone']) . '">
+                    <input type="hidden" name="email" value="' . htmlspecialchars($client['email']) . '">
+                    <button type="submit" class="btn btn-primary btn-sm">Télécharger</button>
+                </form>
+            </td>
+        </tr>';
+    }
+
+    echo '
+                </tbody>
+            </table>
+        </div>
+    </div>';
+}
 function gestionnaire_fichier ($utilisateur,$groupe) {
     scandir('./');
 }
@@ -145,6 +234,57 @@ function lien_dossier ($absolu,$nom,$id="") {
     ';
 
 
+}
+function navigation() 
+{
+    echo('
+<nav class="navbar navbar-expand-lg" style="background-color: #f8f9fa;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">
+            <img src="img/logo1.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top">
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="gestionnaire_fichier.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Gestionnaire de fichier</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="annuaire_entreprise.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire de l\'entreprise</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="annuaire_fournisseur_partenaire.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaires des fournisseurs partenaires</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="annuaire_clients.php" onmouseover="agrandir(this)" onmouseout="revenir(this)">Annuaire des clients</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                <span class="text-dark me-3">Bonjour, '.$_SESSION["nom"].'</span>
+                <a href="deconnexion.php" class="btn btn-outline-dark btn-sm">Se déconnecter</a><!--/SAE203/intranet/deconnexion.php pas besoin de mettre le chemin absolue-->
+            </ul>
+        </div>
+    </div>
+</nav>
+    <script>
+        // Sélectionner tous les liens de la navbar
+    
+
+        // Parcourir chaque lien et ajouter des gestionnaires d\'événements
+        function agrandir(link){
+        link.style.fontSize = \'1.2rem\'; // Agrandir la taille de la police
+        link.style.transition = \'font-size 0.2s ease-in-out, color 0.2s ease-in-out\'; // Transition fluide
+    
+        }
+        function revenir(link){
+        link.style.fontSize = \'1rem\'; // Revenir à la taille normale
+        link.style.color = \'\'; // Réinitialiser la couleur
+
+        }
+    
+    </script>
+  ');
+        
+    
 }
 function navbar (){
     echo'

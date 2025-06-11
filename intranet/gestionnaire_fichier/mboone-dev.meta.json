@@ -1,0 +1,7 @@
+{
+  "owner": "mboone",
+  "can_view": ["mboone", "nlouer"],
+  "can_edit": ["mboone", "nlouer"],
+  "can_delete": ["mboone"],
+  "shared_with": ["nlouer"]
+}

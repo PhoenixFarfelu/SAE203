@@ -1,0 +1,226 @@
+{
+    "1": {
+        "nom": "Bierre",
+        "prenom": "Neven",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "L.Neven@gmail.fr",
+        "bio": "Je suis Neven Louër, je travaille dans le secteur du vêtement et je suis déjà engagé(e) dans l’entreprise. J’aime comprendre les besoins, faire avancer les choses concrètement et m’impliquer dans le travail d’équipe.",
+        "fonction": "Responsable de la production",
+        "photo": "Bierre.jpeg"
+    },
+
+    "2": {
+        "nom": "Chartier",
+        "prenom": "Pierre",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "P.Chartier@gmail.fr",
+        "bio": "Je suis Pierre Chartier, X 2007, Head of Trading Vol & Hybride. Je combine rigueur analytique et vision marché pour piloter les activités de trading avec impact, en gardant toujours un esprit d’équipe et d’innovation.",
+        "fonction": "Trader",
+        "photo": "Chartier.jpg"
+    },
+    
+    "3": {
+        "nom": "Aucentre",
+        "prenom": "Lucas",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "L.Aucentre@gmail.fr",
+        "bio": "Je suis Lucas Aucentre, passionné par les marchés… et le caramel. J’aime mêler précision, curiosité et gourmandise dans tout ce que je fais, que ce soit en finance ou en cuisine. Toujours à la recherche du bon équilibre",
+        "fonction": "Analyste financier",
+        "photo": "Aucentre.jpeg"
+    },
+    "4": {
+        "nom": "Bompaff",
+        "prenom": "Audalys",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "B.Audalys@gmail.fr",
+        "bio": "Je suis Audalys Bompaff, curieuse, engagée, et toujours tournée vers l’action. J’aime faire avancer les projets avec exigence et bienveillance, en cherchant l’impact concret et le sens dans ce que je fais.",
+        "fonction": "Responsable de la stratégie",
+        "photo": "Bompaff.jpeg"
+    },
+    "5": {
+        "nom": "Des Batons",
+        "prenom": "Robin",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "DB.Robin@gmail.fr",
+        "bio": "Je suis Robin Des Baton, j’avance avec méthode, énergie et un vrai goût pour le collectif. J’aime transformer les défis en projets concrets, toujours avec précision et une touche de créativité bien placée.",   
+        "fonction": "Chef de projet",
+        "photo": "DesBatons.jpeg"
+    },
+    "6": {
+        "nom": "Pouteau",
+        "prenom": "Flavio",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "P.Flavio@gmail.fr",
+        "bio": "Je suis Flavio Pouteau, motivé, curieux et toujours prêt à relever de nouveaux défis. J’aime apprendre vite, m’adapter, et faire avancer les choses avec rigueur et enthousiasme.",
+        "fonction": "Responsable de la stratégie",
+        "photo": "Pouteau.jpeg"
+    },
+    "7": {
+        "nom": "Bonner",
+        "prenom": "Meven",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "B.Meven@gmail.fr",
+        "bio" : "Je suis Bonner Meven, engagé, observateur et toujours tourné vers l’action. J’aime comprendre en profondeur avant d’agir, et contribuer avec sérieux et calme aux projets qui comptent.",
+        "fonction": "Responsable de la production",
+        "photo": "Bonner.jpeg"
+    },
+    "8": {
+        "nom": "Carroussel",
+        "prenom": "Telio",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "C.Telio@gmail.fr",
+        "bio" : "Je suis Telio Carroussel, dynamique et curieux, toujours prêt à explorer de nouvelles idées. J’aime allier créativité et rigueur pour faire avancer les projets avec enthousiasme.",
+        "fonction": "Responsable de la stratégie",
+        "photo": "Caroussel.jpeg"
+    },
+    "9": {
+        "nom": "Laroche",
+        "prenom": "Emma",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "L.Emma@gmail.fr",
+        "bio" : "Je suis Emma Laroche, passionnée par la communication et le storytelling. J’aime créer du lien entre les marques et leurs audiences avec authenticité.",
+        "fonction": "Responsable de la communication",
+        "photo": "Laroche.jpeg"
+    },"10": {
+        "nom": "Delorme",
+        "prenom": "Lucas",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "D.Lucas@l.fr",
+        "bio" : "Je suis Lucas Delorme, expert en gestion de projet. Organisé et pragmatique, je transforme les idées en résultats concrets.",
+        "fonction": "Chef de projet",
+        "photo": "Delorme.jpeg"
+    },"11": {
+        "nom": "Fontaine",
+        "prenom": "Chloe",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "F.Clhoe@l.fr",
+        "bio" : "Je suis Chloé Fontaine, spécialisée en marketing digital. Curieuse et créative, je cherche toujours à innover pour capter l’attention.",
+        "fonction": "Responsable marketing digital",
+        "photo": "Fontaine.jpeg"
+    },"12": {
+        "nom": "Garnier",
+        "prenom": "Matthieu",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "G.Mathieu@l.fr",
+        "bio" : "Je suis Matthieu Garnier, développeur full-stack. J’aime coder des solutions simples qui font la différence.",
+        "fonction": "Développeur full-stack",
+        "photo": "Garnier.jpeg"
+    },"13": {
+        "nom": "Tremblay",
+        "prenom": "Sophie",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "T.Sophie@l.fr",
+        "bio" : "Je suis Sophie Tremblay, responsable RH. Je mets l’humain au cœur des stratégies pour faire grandir les équipes.",
+        "fonction": "Responsable des ressources humaines",
+        "photo": "Tremblay.jpeg"
+    },
+    "14": {
+        "nom": "Morel",
+        "prenom": "Antoine",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "M.Antoine@l.fr",
+        "bio" : "Je suis Antoine Morel, consultant en stratégie. J’accompagne les entreprises à voir plus loin et à saisir les bonnes opportunités.",
+        "fonction": "Consultant en stratégie",
+        "photo": "Morel.jpeg"
+    },
+    "15": {
+        "nom": "Dubois",
+        "prenom": "Laura",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "D.Laura@l.fr",
+        "bio" : "Je suis Laura Dubois, designer UX/UI. Mon objectif : rendre chaque expérience digitale fluide et agréable.",
+        "fonction": "Designer UX/UI",
+        "photo": "Dubois.jpeg"
+    },
+    "16": {
+        "nom": "Lefèvre",
+        "prenom": "Julien",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "L.Julien@l.fr",
+        "bio" : "Je suis Julien Lefèvre, expert en finance. Rigoureux et analytique, j’aide à sécuriser et optimiser les ressources.",
+        "fonction": "Analyste financier",
+        "photo": "lefevre.jpeg"
+    },
+    "17": {
+        "nom": "Bernard",
+        "prenom": "Camille",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "B.Camille@l.fr",
+        "bio" : "Je suis Camille Bernard, chef de produit. J’aime piloter des projets qui répondent vraiment aux besoins des utilisateurs.",
+        "fonction": "Chef de produit",
+        "photo": "Bernard.jpeg"
+    },
+    "18": {
+        "nom": "Roux",
+        "prenom": "Maxime",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "R.Maxime@l.fr",
+        "bio" : "Je suis Maxime Roux, spécialiste logistique. J’organise et optimise les flux pour garantir efficacité et rapidité.",
+        "fonction": "Responsable logistique",
+        "photo": "Roux.jpeg"
+    },
+    "19": {
+        "nom": "Martel",
+        "prenom": "Inès",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "M.Ines@l.fr",
+        "bio" : "Je suis Inès Martel, chargée de communication interne. J’encourage le dialogue et la cohésion au sein des équipes.",
+        "fonction": "Chargée de communication interne",
+        "photo": "Martel.jpeg"
+    },"20": {
+        "nom": "Garnault",
+        "prenom": "Thomas",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "G.Thomas@l.fr",
+        "bio" : "Je suis Thomas Garnault, expert en développement durable. Je m’engage à faire rimer performance avec responsabilité.",
+        "fonction": "Responsable développement durable",
+        "photo": "Garnault.jpeg"
+    }
+        }

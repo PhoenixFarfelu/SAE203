@@ -1,32 +1,37 @@
 [
     {
-        "nom": "Le roi du coton",
-        "description": "Le roi du coton est un magasin de tissus et de mercerie qui propose une large sélection de tissus en coton, de la dentelle, des fils à coudre et des accessoires de couture. Ils sont spécialisés dans les tissus pour la confection de vêtements, de rideaux et d'ameublement.",
-        "adresse": "123 Rue de la Couture, Paris",
-        "telephone": "01 23 45 67 89"
+        "name": "The King of Cotton",
+        "description": "The King of Cotton is a fabric and haberdashery store offering a wide selection of cotton fabrics, lace, sewing threads, and sewing accessories. They specialize in fabrics for clothing, curtains, and upholstery.",
+        "address": "123 Sewing Street, Paris",
+        "phone": "01 23 45 67 89",
+        "logo": "cotton_king.jpg"
     },
     {
-        "nom": "La mercerie de la mode",
-        "description": "La mercerie de la mode est une boutique en ligne qui propose une large gamme de tissus, de fils, de boutons et d'accessoires de couture. Ils offrent également des cours de couture pour les débutants et les couturiers expérimentés.",
-        "adresse": "456 Avenue des Tissus, Lyon",
-        "telephone": "04 56 78 90 12"
+        "name": "The Fashion Haberdashery",
+        "description": "The Fashion Haberdashery is an online store offering a wide range of fabrics, threads, buttons, and sewing accessories. They also provide sewing classes for beginners and experienced sewists.",
+        "address": "456 Fabric Avenue, Lyon",
+        "phone": "04 56 78 90 12",
+        "logo" : "haberdashery.jpg"
     },
     {
-        "nom": "Tissus et créations",
-        "description": "Tissus et créations est un magasin de tissus qui propose une sélection de tissus en coton, en lin, en laine et en polyester. Ils offrent également des cours de couture pour tous les niveaux.",
-        "adresse": "789 Boulevard des Créations, Marseille",
-        "telephone": "06 78 90 12 34"
+        "name": "Fabrics and Creations",
+        "description": "Fabrics and Creations is a fabric store offering a selection of cotton, linen, wool, and polyester fabrics. They also provide sewing classes for all levels.",
+        "address": "789 Creations Boulevard, Marseille",
+        "phone": "06 78 90 12 34",
+        "logo" : "fabrics.jpg"
     },
     {
-        "nom": "Broderie d'art",
-        "description": "Broderie d'art est une entreprise spécialisée dans la broderie artisanale et industrielle. Ils proposent des services de personnalisation pour les vêtements, les accessoires et les articles de décoration.",
-        "adresse": "321 Rue des Brodeurs, Lille",
-        "telephone": "03 21 43 65 87"
+        "name": "Art Embroidery",
+        "description": "Art Embroidery is a company specializing in artisanal and industrial embroidery. They offer customization services for clothing, accessories, and decorative items.",
+        "address": "321 Embroiderers Street, Lille",
+        "phone": "03 21 43 65 87",
+        "logo" : "art.jpg"
     },
     {
-        "nom": "TechPuce",
-        "description": "TechPuce est un fournisseur de puces électroniques de haute qualité, spécialisé dans les solutions pour l'industrie automobile, les appareils connectés et les systèmes embarqués.",
-        "adresse": "987 Parc Technologique, Grenoble",
-        "telephone": "04 76 12 34 56"
+        "name": "TechChip",
+        "description": "TechChip is a supplier of high-quality electronic chips, specializing in solutions for the automotive industry, connected devices, and embedded systems.",
+        "address": "987 Technology Park, Grenoble",
+        "phone": "04 76 12 34 56",
+        "logo" : "techchip.jpg"
     }
 ]
