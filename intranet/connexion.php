@@ -36,9 +36,9 @@ if (isset($_POST['submit'])){
 } else {
     echo '
     <body class="bg-light">
-        <div class="container vh-100 d-flex justify-content-center align-items-center">
-            <div class="row w-100">
-                <div class="col-md-1 d-md-flex flex-column align-items-center justify-content-center rounded-start" style="height: 800px;">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="row 20%">
+                <div class="col-md-1 d-md-flex flex-column align-items-center justify-content-center rounded-start" style="height: 80%;">
                     <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid mb-2" style="max-width: 400%;"></a>
                 </div>
                 <div class="col-md-6 bg-white shadow rounded-end p-5 mx-auto">
@@ -60,10 +60,6 @@ if (isset($_POST['submit'])){
                             <button type="submit" class="btn btn-dark" name="submit" value="submit">Se connecter</button>
                         </div>
                     </form>
-                    <div class="text-center mt-4">
-                        <span>Si vous n\'avez pas de compte :</span>
-                        <a href="inscription.php" class="btn btn-outline-dark ms-2">S\'inscrire</a>
-                    </div>
                 </div>
             </div>
         </div>
