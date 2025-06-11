@@ -38,7 +38,7 @@ if (isset($_POST['submit'])){
     <body class="bg-light">
         <div class="container d-flex justify-content-center align-items-center">
             <div class="row 20%">
-                <div class="col-md-1 d-md-flex flex-column align-items-center justify-content-center rounded-start" style="height: 800px;">
+                <div class="col-md-1 d-md-flex flex-column align-items-center justify-content-center rounded-start" style="height: 80%;">
                     <a href="index.php"><img src="img/logo2.png" alt="Logo" class="img-fluid mb-2" style="max-width: 400%;"></a>
                 </div>
                 <div class="col-md-6 bg-white shadow rounded-end p-5 mx-auto">
