@@ -39,7 +39,7 @@ $nb_partenaire = count($partenaire);
                 </tbody>
             </table>
             <div>
-                <img class="img-fluid" src="img/bigbro.png" alt="bigbro" style="width: 80%; height: auto;">
+                <img src="img/bigbro.png" alt="bigbro" style="display: block; margin: 0 auto; width: 100%; max-width: 600px;">
         </div>
     </div> 
 
