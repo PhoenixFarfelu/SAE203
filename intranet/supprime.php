@@ -6,7 +6,7 @@ $prenom = $data[$_POST['submit']]['prenom'];
 $nom = $data[$_POST['submit']]['nom'];
 $username = strtolower(substr($prenom, 0, 1) . $nom);
 unset($data[$_POST['submit']]);
-print_r($data);
+// print_r($data);
 if (!empty($data[$_POST['submit']]['photo'])) {
     $photoPath = 'data/annuaires/photo/' . $data[$_POST['submit']]['photo'];
     if (file_exists($photoPath)) {

@@ -19,7 +19,7 @@ if (!empty($data[$_POST['submit']]['photo'])) {
 
 // Gestion de l'upload de la nouvelle photo
 if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] === UPLOAD_ERR_OK) {
-    $filename = uniqid('photo_') . '.jpeg';
+    $filename = $data[$_POST['submit']]['photo'];
     move_uploaded_file($_FILES["photo"]["tmp_name"], "data/annuaires/photo/" . $filename);
     $data[$_POST['submit']]['photo'] = $filename;
 }
