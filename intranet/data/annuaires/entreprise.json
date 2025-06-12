@@ -222,5 +222,96 @@
         "bio" : "Je suis Thomas Garnault, expert en développement durable. Je m’engage à faire rimer performance avec responsabilité.",
         "fonction": "Responsable développement durable",
         "photo": "Garnault.jpeg"
+    },"21": {
+    "nom": "Leclerc",
+    "prenom": "Camille",
+    "role": ["salarié"],
+    "email": "C.Leclerc@l.fr",
+    "bio": "Je suis Camille Leclerc, facilitatrice de projets. J’aime créer du lien entre les équipes et fluidifier la collaboration.",
+    "fonction": "Facilitatrice de projet",
+    "photo": "Leclerc.jpeg"
+    },
+    "22": {
+        "nom": "Marchand",
+        "prenom": "Quentin",
+        "role": ["salarié"],
+        "email": "Q.Marchand@l.fr",
+        "bio": "Je suis Quentin Marchand, ingénieur IT passionné d’automatisation et de performance.",
+        "fonction": "Ingénieur DevOps",
+        "photo": "Marchand.jpeg"
+    },
+    "23": {
+        "nom": "Perrin",
+        "prenom": "Léa",
+        "role": ["salariée"],
+        "email": "L.Perrin@l.fr",
+        "bio": "Je suis Léa Perrin, je conçois des contenus qui engagent et qui inspirent. La créativité est ma boussole.",
+        "fonction": "Content manager",
+        "photo": "Perrin.jpeg"
+    },
+    "24": {
+        "nom": "Colin",
+        "prenom": "Romain",
+        "role": ["salarié"],
+        "email": "R.Colin@l.fr",
+        "bio": "Je suis Romain Colin, expert en cybersécurité. J’anticipe les menaces pour protéger nos systèmes avec rigueur.",
+        "fonction": "Responsable cybersécurité",
+        "photo": "Colin.jpeg"
+    },
+    "25": {
+        "nom": "Chevalier",
+        "prenom": "Anna",
+        "role": ["salariée"],
+        "email": "A.Chevalier@l.fr",
+        "bio": "Je suis Anna Chevalier, motivée par l’impact social et environnemental, j'accompagne les transformations responsables.",
+        "fonction": "Consultante impact",
+        "photo": "Chevalier.jpeg"
+    },
+    "26": {
+        "nom": "Lemoine",
+        "prenom": "Nathan",
+        "role": ["salarié"],
+        "email": "N.Lemoine@l.fr",
+        "bio": "Je suis Nathan Lemoine, développeur mobile. Mon but : créer des applis intuitives et performantes.",
+        "fonction": "Développeur mobile",
+        "photo": "Lemoine.jpeg"
+    },
+    "27": {
+        "nom": "Jacquet",
+        "prenom": "Eva",
+        "role": ["salariée"],
+        "email": "E.Jacquet@l.fr",
+        "bio": "Je suis Eva Jacquet, spécialiste de l'expérience utilisateur. J’écoute, j’observe, et je construis pour les utilisateurs.",
+        "fonction": "UX researcher",
+        "photo": "Jacquet.jpeg"
+    },
+    "28": {
+        "nom": "Renaud",
+        "prenom": "Thomas",
+        "role": ["salarié"],
+        "email": "T.Renaud@l.fr",
+        "bio": "Je suis Thomas Renaud, juriste engagé pour une entreprise éthique, responsable et en conformité.",
+        "fonction": "Juriste",
+        "photo": "Renaud.jpeg"
+    },
+    "29": {
+        "nom": "Blanchard",
+        "prenom": "Nina",
+        "role": ["salariée"],
+        "email": "N.Blanchard@l.fr",
+        "bio": "Je suis Nina Blanchard, attachée à la clarté des messages et à l’efficacité des échanges. Je pilote la com' externe.",
+        "fonction": "Chargée de communication externe",
+        "photo": "Blanchard.jpeg"
+    },
+    "30": {
+        "nom": "Delattre",
+        "prenom": "Hugo",
+        "role": ["salarié"],
+        "email": "H.Delattre@l.fr",
+        "bio": "Je suis Hugo Delattre, data analyst. J’explore les données pour révéler les tendances qui comptent.",
+        "fonction": "Data analyst",
+        "photo": "Delattre.jpeg"
     }
-        }
+
+
+}
