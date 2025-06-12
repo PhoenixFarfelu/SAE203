@@ -298,14 +298,16 @@ function afficherArborescence($dossier) {
             echo '<span class="text-primary fw-bold d-flex align-items-center" onclick="toggleFolder(event)" style="cursor: pointer;">
                     <span class="me-2">▶</span>'.$element.'
                     </span>';
+            echo '<div class="ms-auto d-flex align-items-center">';
             if (user_can("delete", $cheminComplet)) {
-                echo '<form action="" method="post" class="d-inline">
+                echo '<form action="" method="post" class="d-inline me-2">
                     <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
                     <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
                         <img src="img/supprimer.png" alt="Supprimer" style="width: 20px; height: 20px;">
                     </button>
                 </form>';
             }
+            echo '</div>';
             echo '</div>';
             echo '<ul class="list-group d-none">';
             afficherArborescence($cheminComplet);
@@ -315,13 +317,10 @@ function afficherArborescence($dossier) {
             $relativePath = htmlspecialchars($cheminComplet);
             echo '<li class="list-group-item">';
             echo '<div class="d-flex justify-content-between align-items-center">';
-            // echo '<a href="'.$relativePath.'" download class="text-dark">'.$element.'</a>';
-            echo '<form action="" method="post" class="d-inline">
-                <input type="hidden" name="filename" value="'.htmlspecialchars($cheminComplet).'">
-                <button type="submit" name="download" class="btn btn-link text-dark p-0">'.$element.'</button>
-                </form>';
+            echo '<a href="'.$relativePath.'" download class="text-dark">'.$element.'</a>';
+            echo '<div class="ms-auto d-flex align-items-center">';
             if (user_can("delete", $cheminComplet)) {
-                echo '<form action="" method="post" class="d-inline">
+                echo '<form action="" method="post" class="d-inline me-2">
                     <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
                     <button type="submit" name="rm" class="btn btn-link p-0" title="Supprimer">
                         <img src="img/supprimer.png" alt="Supprimer" style="width: 20px; height: 20px;">
@@ -330,10 +329,11 @@ function afficherArborescence($dossier) {
             }
             if (is_owner($cheminComplet)) {
                 echo '<form action="share.php" method="post" class="d-inline">
-                    <input type="text" name="filename" value="'.$cheminComplet.'" requiered hidden>
-                    <input type="submit" name="share" value="icon à ajouter" class="bg-warning d-inline">
+                    <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
+                    <input type="submit" name="share" value="partager" class="bg-warning d-inline">
                 </form>';
             }
+            echo '</div>';
             echo '</div>';
             echo '</li>';
         }
