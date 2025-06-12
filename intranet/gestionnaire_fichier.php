@@ -6,6 +6,28 @@
 <?php
 session_start();
 include "scripts/fonctions.php";
+
+if (isset($_POST["download"])) {
+    if (isset($_POST["filename"]) && user_can("view", $_POST["filename"]) && is_file($_POST["filename"])) {
+        $chemin_autorisee = realpath('gestionnaire-fichier'); // /var/www/html/intranet/gestionnaire-fichier sur la VM
+        if (strpos($_POST["filename"], $chemin_autorisee) !== 0) {
+            http_response_code(403);
+            exit('Accès interdit.');
+        }
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="'.basename($_POST["filename"]).'"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($_POST["filename"]));
+        readfile($_POST["filename"]);
+    } else {
+        echo "<script>alert('un probleme est survenu');</script>";
+        echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+    }
+}
+
 parametre("img/logo1.png");
 
 if (!isset($_SESSION["nom"])) {

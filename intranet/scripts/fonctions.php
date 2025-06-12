@@ -315,7 +315,11 @@ function afficherArborescence($dossier) {
             $relativePath = htmlspecialchars($cheminComplet);
             echo '<li class="list-group-item">';
             echo '<div class="d-flex justify-content-between align-items-center">';
-            echo '<a href="'.$relativePath.'" download class="text-dark">'.$element.'</a>';
+            // echo '<a href="'.$relativePath.'" download class="text-dark">'.$element.'</a>';
+            echo '<form action="" method="post" class="d-inline">
+                <input type="hidden" name="filename" value="'.htmlspecialchars($cheminComplet).'">
+                <button type="submit" name="download" class="btn btn-link text-dark p-0">'.$element.'</button>
+                </form>';
             if (user_can("delete", $cheminComplet)) {
                 echo '<form action="" method="post" class="d-inline">
                     <input type="text" name="filename" value="'.$cheminComplet.'" required hidden>
