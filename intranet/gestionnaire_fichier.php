@@ -1,8 +1,3 @@
-<!-- to do list :
-    - autoriser l'overwrite (si droits accordés)
-    - sécuriser les fichiers de conf (empecher l'accès aux fichiers .json)
-    - couper l'accès au gestionnaire de fichier (le dossier, pas la page) pou n'y acceder que par php -->
-
 <?php
 session_start();
 include "scripts/fonctions.php";
@@ -126,11 +121,11 @@ navigation();
                     "shared_with" => []
                 ];
 
-                file_put_contents("gestionnaire_fichier".$_POST["path"].$filename.".meta.json", json_encode($json));
-                // echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+                file_put_contents("gestionnaire_fichier".$_POST["path"].$filename.".meta.json", json_encode($json, JSON_PRETTY_PRINT));
+                echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
             } else {
                 echo "<script>alert('un probleme est survenu');</script>";
-                // echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
+                echo '<meta http-equiv="refresh" content="0;url=gestionnaire_fichier.php">';
             }
         }        
     }
