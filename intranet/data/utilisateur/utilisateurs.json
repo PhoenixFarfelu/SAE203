@@ -1,98 +1,331 @@
 [
-  {
-    "nom": "Louër",
-    "prenom": "Neven",
-    "utilisateur": "nlouer",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié","admin"],
-    "email": "neven@louer.fr"
-  },
-  {
-    "nom": "Boone",
-    "prenom": "Meven",
-    "utilisateur": "mboone",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié","direction"],
-    "email": "meven@boone.fr"
-  },
-  {
-    "nom": "Lucas",
-    "prenom": "Aussant",
-    "utilisateur": "laussant",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié"],
-    "email": "lucas@aussant.fr"
-  },
-  {
-    "nom": "Bompas",
-    "prenom": "Audalys",
-    "utilisateur": "abompas",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié"],
-    "email": "audalys@bompas.fr"
-  },
-  {
-    "nom": "Roussel",
-    "prenom": "Télio",
-    "utilisateur": "troussel",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié"],
-    "email": "telio@roussel.fr"
-  },
-  {
-    "nom": "Baton",
-    "prenom": "Robin",
-    "utilisateur": "rbaton",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié"],
-    "email": "robin@baton.fr"
-  },
-  {
-    "nom": "Delaunay",
-    "prenom": "Kenaï",
-    "utilisateur": "kdelaunay",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié"],
-    "email": "kenai@delaunay.fr"
-  },
-  {
-    "nom": "Pouteau",
-    "prenom": "Flavio",
-    "utilisateur": "fpouteau",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié"],
-    "email": "flavio@pouteau.fr"
-  },
-  {
-    "nom": "Test",
-    "prenom": "Admin",
-    "utilisateur": "admin01",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["admin"],
-    "email": "admin01@test.fr"
-  },
-  {
-    "nom": "Test",
-    "prenom": "Manager",
-    "utilisateur": "manager01",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["manager"],
-    "email": "manager01@test.fr"
-  },
-  {
-    "nom": "Test",
-    "prenom": "Employé",
-    "utilisateur": "employee01",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["salarié"],
-    "email": "employee01@test.fr"
-  },
-  {
-    "nom": "Test",
-    "prenom": "Direction",
-    "utilisateur": "direction01",
-    "motdepasse": "$2y$10$TAl6KgD8D/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc/dSINm",
-    "role": ["direction"],
-    "email": "direction01@test.fr"
-  }
+    {
+        "nom": "Lou\u00ebr",
+        "prenom": "Neven",
+        "utilisateur": "nlouer",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "neven@louer.fr"
+    },
+    {
+        "nom": "Boone",
+        "prenom": "Meven",
+        "utilisateur": "mboone",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "direction"
+        ],
+        "email": "meven@boone.fr"
+    },
+    {
+        "nom": "Lucas",
+        "prenom": "Aussant",
+        "utilisateur": "laussant",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "lucas@aussant.fr"
+    },
+    {
+        "nom": "Bompas",
+        "prenom": "Audalys",
+        "utilisateur": "abompas",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "audalys@bompas.fr"
+    },
+    {
+        "nom": "Roussel",
+        "prenom": "T\u00e9lio",
+        "utilisateur": "troussel",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "telio@roussel.fr"
+    },
+    {
+        "nom": "Baton",
+        "prenom": "Robin",
+        "utilisateur": "rbaton",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "robin@baton.fr"
+    },
+    {
+        "nom": "Delaunay",
+        "prenom": "Kena\u00ef",
+        "utilisateur": "kdelaunay",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "kenai@delaunay.fr"
+    },
+    {
+        "nom": "Pouteau",
+        "prenom": "Flavio",
+        "utilisateur": "fpouteau",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "flavio@pouteau.fr"
+    },
+    {
+        "nom": "Test",
+        "prenom": "Admin",
+        "utilisateur": "admin01",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "admin"
+        ],
+        "email": "admin01@test.fr"
+    },
+    {
+        "nom": "Test",
+        "prenom": "Manager",
+        "utilisateur": "manager01",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "manager"
+        ],
+        "email": "manager01@test.fr"
+    },
+    {
+        "nom": "Test",
+        "prenom": "Employ\u00e9",
+        "utilisateur": "employee01",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "employee01@test.fr"
+    },
+    {
+        "nom": "Test",
+        "prenom": "Direction",
+        "utilisateur": "direction01",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "direction"
+        ],
+        "email": "direction01@test.fr"
+    },
+    {
+        "nom": "Bierre",
+        "prenom": "Neven",
+        "utilisateur": "nbierre",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "neven.bierre@domaine.fr"
+    },
+    {
+        "nom": "Chartier",
+        "prenom": "Pierre",
+        "utilisateur": "pchartier",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "pierre.chartier@domaine.fr"
+    },
+    {
+        "nom": "Aucentre",
+        "prenom": "Lucas",
+        "utilisateur": "laucentre",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "lucas.aucentre@domaine.fr"
+    },
+    {
+        "nom": "Bompaff",
+        "prenom": "Audalys",
+        "utilisateur": "abompaff",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "audalys.bompaff@domaine.fr"
+    },
+    {
+        "nom": "Des Batons",
+        "prenom": "Robin",
+        "utilisateur": "rdes batons",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "robin.des batons@domaine.fr"
+    },
+    {
+        "nom": "Pouteau",
+        "prenom": "Flavio",
+        "utilisateur": "fpouteau",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "flavio.pouteau@domaine.fr"
+    },
+    {
+        "nom": "Bonner",
+        "prenom": "Meven",
+        "utilisateur": "mbonner",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "meven.bonner@domaine.fr"
+    },
+    {
+        "nom": "Carroussel",
+        "prenom": "Telio",
+        "utilisateur": "tcarroussel",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9",
+            "admin"
+        ],
+        "email": "telio.carroussel@domaine.fr"
+    },
+    {
+        "nom": "Laroche",
+        "prenom": "Emma",
+        "utilisateur": "elaroche",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "emma.laroche@domaine.fr"
+    },
+    {
+        "nom": "Delorme",
+        "prenom": "Lucas",
+        "utilisateur": "ldelorme",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "lucas.delorme@domaine.fr"
+    },
+    {
+        "nom": "Fontaine",
+        "prenom": "Chloe",
+        "utilisateur": "cfontaine",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "chloe.fontaine@domaine.fr"
+    },
+    {
+        "nom": "Garnier",
+        "prenom": "Matthieu",
+        "utilisateur": "mgarnier",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "matthieu.garnier@domaine.fr"
+    },
+    {
+        "nom": "Tremblay",
+        "prenom": "Sophie",
+        "utilisateur": "stremblay",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "sophie.tremblay@domaine.fr"
+    },
+    {
+        "nom": "Morel",
+        "prenom": "Antoine",
+        "utilisateur": "amorel",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "antoine.morel@domaine.fr"
+    },
+    {
+        "nom": "Dubois",
+        "prenom": "Laura",
+        "utilisateur": "ldubois",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "laura.dubois@domaine.fr"
+    },
+    {
+        "nom": "Lef\u00e8vre",
+        "prenom": "Julien",
+        "utilisateur": "jlef\u00e8vre",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "julien.lef\u00e8vre@domaine.fr"
+    },
+    {
+        "nom": "Bernard",
+        "prenom": "Camille",
+        "utilisateur": "cbernard",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "camille.bernard@domaine.fr"
+    },
+    {
+        "nom": "Roux",
+        "prenom": "Maxime",
+        "utilisateur": "mroux",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "maxime.roux@domaine.fr"
+    },
+    {
+        "nom": "Martel",
+        "prenom": "In\u00e8s",
+        "utilisateur": "imartel",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "in\u00e8s.martel@domaine.fr"
+    },
+    {
+        "nom": "Garnault",
+        "prenom": "Thomas",
+        "utilisateur": "tgarnault",
+        "motdepasse": "$2y$10$TAl6KgD8D\/8zDmvcOvezx.ED.RUhgpNnG5Ae46V6XbqoTNc\/dSINm",
+        "role": [
+            "salari\u00e9"
+        ],
+        "email": "thomas.garnault@domaine.fr"
+    }
 ]
