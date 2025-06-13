@@ -148,7 +148,7 @@ function annuaire_client_ameliore() {
             <td>' . htmlspecialchars($client['telephone']) . '</td>
             <td>' . htmlspecialchars($client['email']) . '</td>
             <td>
-                <form method="post" action="scripts/telecharger_fiche_client.php" style="display:inline;">
+                <form method="post" action="telecharger_fiche_client.php" style="display:inline;">
                     <input type="hidden" name="nom" value="' . htmlspecialchars($client['nom']) . '">
                     <input type="hidden" name="prenom" value="' . htmlspecialchars($client['prenom']) . '">
                     <input type="hidden" name="adresse" value="' . htmlspecialchars($client['adresse']) . '">
